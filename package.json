@@ -1,0 +1,30 @@
+{
+  "name": "webmidi-controller",
+  "version": "0.1.0",
+  "description": "webmidi controller",
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "start": "parcel serve src/index.njk",
+    "build": "cross-env NODE_ENV=production parcel build src/index.njk --public-url .",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "keywords": [
+    "webmidi",
+    "midi"
+  ],
+  "author": "Ken Frederick",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/webmidi": "^2.0.4",
+    "cross-env": "^5.2.0",
+    "gh-pages": "^1.2.0",
+    "nunjucks": "^3.2.2",
+    "parcel-bundler": "^1.9.7",
+    "parcel-plugin-clean-dist": "0.0.6",
+    "parcel-plugin-nunjucks": "^2.2.2",
+    "sass": "^1.30.0",
+    "typescript": "^2.9.2"
+  }
+}
