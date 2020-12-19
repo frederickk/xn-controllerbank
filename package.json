@@ -6,8 +6,8 @@
     "src/"
   ],
   "scripts": {
-    "start": "parcel serve src/index.njk",
-    "build": "cross-env NODE_ENV=production parcel build src/index.njk --public-url .",
+    "start": "parcel serve src/index.njk src/no-coast/index.njk",
+    "build": "cross-env NODE_ENV=production parcel build src/index.njk src/no-coast/index.njk --no-source-maps --public-url ./ && cp src/.htaccess dist/.htaccess",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "keywords": [
