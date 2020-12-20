@@ -1,0 +1,51 @@
+{% set relative_dir = relative_dir | default('./') %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="apple-touch-icon" href="{{ relative_dir }}images/icon-192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="{{ relative_dir }}manifest.json" />
+    <title>Webmidi Controller</title>
+    <link rel="stylesheet" href="{{ relative_dir }}index.css" />
+  </head>
+
+  <body>
+    <header>
+      {#
+      <div>
+        <label id="midi-input-label" class="arc__label" for="midi-input">Input device</label>
+        <select id="midi-input" class="midi-select"></select>
+      </div>
+      #}
+      <div>
+        <label id="midi-output-label" class="arc__label" for="midi-output">Output device</label>
+        <select id="midi-output" class="midi-select"></select>
+      </div>
+      <div>
+        <label id="control-template-label" class="arc__label" for="control-template">Control template</label>
+        <select id="control-template" class="midi-select" onchange="window.location.assign(`${this.value}`)">
+          <option value="{{ relative_dir }}">Generic</option>
+          <option value="{{ relative_dir }}no-coast/">0-Coast</option>
+        </select>
+      </div>
+      <div class="header__group">
+        <div>
+          <label id="save-button-label" class="arc__label" for="save-button">&nbsp;</label>
+          <button id="save-button" class="button"><span class="material-icons">save_alt</span> Save</button>
+        </div>
+        <div>
+          <label id="clear-button-label" class="arc__label" for="clear-button">&nbsp;</label>
+          <button id="clear-button" class="button"><span class="material-icons">clear</span> Clear</button>
+        </div>
+      </div>
+      {% block header %}{% endblock %}
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <script src="{{ relative_dir }}index.js"></script>
+  </body>
+</html>

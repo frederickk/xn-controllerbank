@@ -5,12 +5,17 @@ WebMidi Controller
 
 ![](./assets/webmidi-controller_screenshot-00.png)
 
+[frederickk.github.io/webmidi-controller/no-coast](https://frederickk.github.io/webmidi-controller/no-coast)
+
+![](./assets/webmidi-controller_screenshot-01.png)
+
+
 ---
 
 Develop
 
 ```
-$ npm run start
+$ npm run dev
 ```
 
 Build

@@ -15,12 +15,12 @@ export class WebmidiController {
     mh.connect();
 
     // Instantiate selects.
-    document.querySelectorAll('select.midi-select').forEach((select) => {
+    Array.from(document.querySelectorAll('select.midi-select')).forEach((select) => {
       new Select(`#${select.id}`);
     });
 
     // Instantiate sliders.
-    document.querySelectorAll('input.arc').forEach((arc) => {
+    Array.from(document.querySelectorAll('input.arc')).forEach((arc) => {
       new Arc(`#${arc.id}`, mh);
     });
 

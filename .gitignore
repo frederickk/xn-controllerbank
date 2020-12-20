@@ -12,8 +12,8 @@ Thumbs.db
 # Folders #
 ###################
 .tmp/
-dist/*
-node_modules/*
+dist/
+node_modules/
 
 # Misc. #
 ###################

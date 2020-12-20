@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Material+Icons&display=swap');
 
 :root {
   --default-background: #222;
@@ -21,7 +21,8 @@ body {
   width: 100%;
 }
 
-header {
+header,
+.header {
   align-items: center;
   background: black;
   display: flex;
@@ -29,6 +30,17 @@ header {
   padding-bottom: 1em;
   position: fixed;
   width: 100%;
+
+  &__group {
+    div {
+      float: left;
+    }
+  }
+
+  .material-icons {
+    line-height: 0;
+    vertical-align: middle;
+  }
 }
 
 select,
@@ -41,6 +53,7 @@ select,
   border-radius: var(--default-border-radius);
   font-family: inherit;
   font-size: inherit;
+  margin: 0 1em;
   padding: 1em;
   transition: color 100ms ease-in-out;
 
