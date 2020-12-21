@@ -1,4 +1,4 @@
-import {Arc} from './ts/arc';
+import {Controller} from './ts/controller';
 import {MidiHelper} from './ts/midiHelper';
 import {Select} from './ts/select';
 
@@ -20,8 +20,8 @@ export class WebmidiController {
     });
 
     // Instantiate sliders.
-    Array.from(document.querySelectorAll('input.arc')).forEach((arc) => {
-      new Arc(`#${arc.id}`, mh);
+    Array.from(document.querySelectorAll('input.controller')).forEach((controller) => {
+      new Controller(`#${controller.id}`, mh);
     });
 
     this.attach_();

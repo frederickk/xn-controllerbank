@@ -1,15 +1,17 @@
 const path = require('path');
+const {request} = require('http');
 const webpack = require('webpack');
 const NunjucksWebpackPlugin = require('nunjucks-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const production = (process.env.NODE_ENV === 'production')
-  ? 'production'
-  : 'development';
+const dataNoCoast = require('./data/no-coast.json');
+const dataEyesy = require('./data/eyesy.json');
 
 module.exports = {
-  mode: production,
+  mode: (process.env.NODE_ENV === 'production')
+    ? 'production'
+    : 'development',
 
   entry: {
     index: [
@@ -52,13 +54,37 @@ module.exports = {
 
   plugins: [
     new NunjucksWebpackPlugin({
+      // TODO(frederickk): Determine how to pass request object to templates.
       templates: [{
         from: './src/index.njk',
-        to: './index.html'
+        to: './index.html',
+        context: {
+          request: {
+            url: '',
+          }
+        },
       }, {
-        from: './src/no-coast/index.njk',
-        to: './no-coast/index.html'
-      }]
+        from: './src/index-data.njk',
+        to: './no-coast/index.html',
+        context: {
+          data: dataNoCoast,
+          request: {
+            url: 'no-coast',
+          }
+        },
+      }, {
+        from: './src/index-data.njk',
+        to: './eyesy/index.html',
+        context: {
+          data: dataEyesy,
+          request: {
+            url: 'eyesy',
+          }
+        },
+      }],
+      configure: {
+        watch: true,
+      },
     }),
     new MiniCssExtractPlugin(),
     new CopyWebpackPlugin({

@@ -66,7 +66,7 @@ export class MidiHelper {
 
     if (this.selectOut_) {
       const device: WebMidi.MIDIOutput = this.midiOut_[this.selectOut_.selectedIndex];
-      device.send(msgOn);
+      device?.send(msgOn);
     }
   }
 
@@ -75,14 +75,14 @@ export class MidiHelper {
 
     if (this.selectOut_) {
       const device: WebMidi.MIDIOutput = this.midiOut_[this.selectOut_.selectedIndex];
-      device.send(msgOff, Date.now() + duration);
+      device?.send(msgOff, Date.now() + duration);
     }
   }
 
   sendMessage(msg: number, value1: number, value2: number) {
     if (this.selectOut_) {
       const device: WebMidi.MIDIOutput = this.midiOut_[this.selectOut_.selectedIndex];
-      device.send([msg, value1, value2]);
+      device?.send([msg, value1, value2]);
     }
   }
 }

@@ -1,0 +1,27 @@
+{% extends 'templates/base.njk' %}
+
+{% set relative_dir = '../' %}
+
+{% block body %}
+  <div id="container" class="container">
+    {% for param in data %}
+      {% if param.type == "spacer" %}
+        <div class="controller__container"></div>
+        {% else %}
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="{{ param.id }}-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">{{ param.label }}</div>
+          </div>
+          <div class="controller__group">
+            <div id="{{ param.id }}-val1-label" class="controller__label">CC Number</div>
+            <input id="{{ param.id }}-val1" class="controller__input controller__value" data-save="1" value="{{ param.channel }}" />
+          </div>
+          <div class="controller__group">
+            <input id="{{ param.id }}" name="{{ param.id }}" class="controller" data-save="1" type="range" value="{{ param.default }}" max="{{ param.max }}" />
+            <input id="{{ param.id }}-label" class="controller__input controller__value" data-save="1" value="{{ param.default }}" />
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock %}

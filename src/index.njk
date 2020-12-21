@@ -2,13 +2,19 @@
 
 {% block body %}
   <div id="container" class="container">
-    {% for i in range(0, 12) -%}
-      <div class="arc__container">
-        <div id="arc{{i + 1}}-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Arc {{i + 1}}</div>
-        <div id="arc{{i + 1}}-val1-label" class="arc__label">CC Number</div>
-        <input id="arc{{i + 1}}-val1" class="arc__input" data-save="1" value="{{i + 1}}" />
-        <label id="arc{{i + 1}}-label" class="arc__label" for="arc{{i + 1}}">0 | {{i + 1}}</label>
-        <input id="arc{{i + 1}}" name="arc{{i + 1}}" class="arc" data-save="1" type="range" value="0" max="127" />
+    {% for i in range(0, 16) -%}
+      <div class="controller__container">
+        <div class="controller__group">
+          <div id="controller{{i + 1}}-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller {{i + 1}}</div>
+        </div>
+        <div class="controller__group">
+          <div id="controller{{i + 1}}-val1-label" class="controller__label">CC Number</div>
+          <input id="controller{{i + 1}}-val1" class="controller__input controller__value" data-save="1" value="{{i + 1}}" />
+        </div>
+        <div class="controller__group">
+          <input id="controller{{i + 1}}" name="controller{{i + 1}}" class="controller" data-save="1" type="range" value="0" max="127" />
+          <input id="controller{{i + 1}}-label" class="controller__input controller__value" data-save="1" value="0" />
+        </div>
       </div>
     {% endfor %}
   </div>

@@ -1,0 +1,92 @@
+.controller {
+  width: 100%;
+
+  &--width-25 {
+    width: 20%;
+  }
+
+  &__container {
+    @include mq-min(600px) {
+      width: calc(50% - 2vw);
+    }
+
+    @include mq-min(1023px) {
+      width: calc(25% - 2vw);
+    }
+
+    border-top: 1px var(--light-background) solid;
+    box-sizing: border-box;
+    margin: 1vw;
+    padding: 0 1vw;
+    width: calc(100%);
+  }
+
+  &__group {
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 1em 0 0;
+    width: 100%;
+
+    .controller,
+    .controller__label {
+      flex: 6;
+    }
+
+    .controller__label {
+      line-height: 0;
+      overflow: visible;
+      top: -50%;
+      transform: translateY(50%);
+    }
+
+    .controller__value {
+      flex: 1;
+    }
+  }
+
+  &__label,
+  &__value {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: color 100ms ease-in-out;
+
+    &--white,
+    &:hover {
+      color: var(--type-color--hover);
+    }
+  }
+
+  &__label {
+    @include mq-min(600px) {
+      max-width: none;
+    }
+  }
+
+  &__value {
+    text-align: center;
+  }
+
+  &__input {
+    @include mq-min(600px) {
+      padding: 1em;
+    }
+
+    appearance: none;
+    background-color: var(--light-background);
+    box-sizing: border-box;
+    color: var(--type-color);
+    border: 0;
+    display: block;
+    font-family: inherit;
+    padding: .5em;
+    transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
+    width: 100%;
+
+    &:hover {
+      color: var(--type-color--hover);
+      background-color: var(--light-background--hover);
+    }
+  }
+}

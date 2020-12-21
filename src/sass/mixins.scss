@@ -1,0 +1,38 @@
+// Media query min-width mixin
+@mixin mq-min($bp-size, $orientation: 'none') {
+  @if $orientation == 'none' {
+    @media only screen and (min-width: $bp-size) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $bp-size) and (orientation: $orientation) {
+      @content;
+    }
+  }
+}
+
+// Media query max-width mixin
+@mixin mq-max($bp-size, $orientation: 'none') {
+  @if $orientation == 'none' {
+    @media all and (max-width: $bp-size) {
+      @content;
+    }
+  } @else {
+    @media all and (max-width: $bp-size) and (orientation: $orientation) {
+      @content;
+    }
+  }
+}
+
+// Media query min-width and max-width mixin
+@mixin mq-min-max($bp-min-size, $bp-max-size, $orientation: 'none') {
+  @if $orientation == 'none' {
+    @media all and (min-width: $bp-min-size) and (max-width: $bp-max-size) {
+      @content;
+    }
+  } @else {
+    @media all and (min-width: $bp-min-size) and (max-width: $bp-max-size) and (orientation: $orientation) {
+      @content;
+    }
+  }
+}

@@ -1,19 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Material+Icons&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Material+Icons&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Material+Icons&display=swap');
+
+@import 'sass/mixins';
+@import 'sass/controller';
+@import 'sass/header';
+
 
 :root {
-  --default-background: #222;
-  --default-border-radius: 4px;
+  --background: #000;
+  --light-background: #222;
+  --light-background--hover: #333;
+  --border-radius: 4px;
   --type-color: darkgray;
   --type-color--hover: white;
+  --error-color: red;
 }
 
 body {
-  background-color: black;
+  background-color: var(--background);
   color: var(--type-color);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'DM Mono'; //'IBM Plex Mono', monospace;
   font-size: 14px;
   height: 100vh;
   margin: 0;
@@ -21,96 +30,76 @@ body {
   width: 100%;
 }
 
-header,
-.header {
-  align-items: center;
-  background: black;
+.material-icons {
+  font-size: 16px;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+.container {
+  @include mq-min(600px) {
+    margin-top: 100px;
+  }
+
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-around;
-  padding-bottom: 1em;
-  position: fixed;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 70px;
+  overflow-x: hidden;
+  padding: 1vw;
   width: 100%;
-
-  &__group {
-    div {
-      float: left;
-    }
-  }
-
-  .material-icons {
-    line-height: 0;
-    vertical-align: middle;
-  }
 }
 
 select,
 .button,
 .midi-select {
-  background-color: var(--default-background);
+  @include mq-min(600px) {
+    padding: 1em;
+    max-width: none;
+  }
+
+  background-color: var(--light-background);
   color: var(--type-color);
   cursor: pointer;
   border: 0;
-  border-radius: var(--default-border-radius);
+  border-radius: var(--border-radius);
   font-family: inherit;
   font-size: inherit;
-  margin: 0 1em;
-  padding: 1em;
+  flex: 2;
+  margin: 0;
+  max-width: 20vw;
+  overflow: hidden;
+  padding: .5em;
+  text-overflow: ellipsis;
   transition: color 100ms ease-in-out;
 
   &:hover {
     color: var(--type-color--hover);
   }
+
+  &:empty {
+    background-color: var(--error-color);
+    color: var(--type-color--hover);
+  }
+
+  &__desc {
+    @include mq-min(600px) {
+      display: inline-flex;
+    }
+
+    display: none;
+    margin: 0 1ch;
+    vertical-align: middle;
+  }
 }
 
-.container {
-  align-self: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 100px;
-  padding: 1vw;
-  width: 100%;
-}
+.button {
+  background-color: var(--background);
+  transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
 
-.arc {
-  width: 100%;
-
-  &--width-25 {
-    width: 20%;
-  }
-
-  &__container {
-    border-top: 1px var(--default-background) solid;
-    flex: 1 0 21%;
-    margin: 1vw;
-  }
-
-  &__label {
-    display: block;
-    margin: 1em 0;
-    transition: color 100ms ease-in-out;
-
-    &--white,
-    &:hover {
-      color: var(--type-color--hover);
-    }
-  }
-
-  &__input {
-    appearance: none;
-    background-color: var(--default-background);
-    color: var(--type-color);
-    border: 0;
-    display: block;
-    font-family: inherit;
-    padding: 1em;
-    transition: color 100ms ease-in-out;
-    width: 94%;
-
-    &:hover {
-      color: var(--type-color--hover);
-    }
+  &:hover {
+    background-color: var(--light-background);
   }
 }
 
@@ -134,10 +123,15 @@ input[type=range] {
   }
 
   &::-webkit-slider-runnable-track {
-    background: var(--default-background);
+    background: var(--light-background);
     border-radius: 1em;
     cursor: pointer;
     height: 2em;
+    transition: background-color 100ms ease-in-out;
+
+    &:hover {
+      background-color: var(--light-background--hover);
+    }
   }
 
   &::-ms-track {

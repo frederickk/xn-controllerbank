@@ -16,30 +16,25 @@
     <header>
       {#
       <div>
-        <label id="midi-input-label" class="arc__label" for="midi-input">Input device</label>
+        <label id="midi-input-label" class="controller__label" for="midi-input">Input device</label>
         <select id="midi-input" class="midi-select"></select>
       </div>
       #}
-      <div>
-        <label id="midi-output-label" class="arc__label" for="midi-output">Output device</label>
+      <div class="header__item">
+        <span class="material-icons">settings_input_svideo</span>
         <select id="midi-output" class="midi-select"></select>
       </div>
-      <div>
-        <label id="control-template-label" class="arc__label" for="control-template">Control template</label>
-        <select id="control-template" class="midi-select" onchange="window.location.assign(`${this.value}`)">
-          <option value="{{ relative_dir }}">Generic</option>
-          <option value="{{ relative_dir }}no-coast/">0-Coast</option>
+      <div class="header__item">
+        <span class="material-icons">piano</span>
+        <select id="control-template" onchange="window.location.assign(`${this.value}`)">
+          <option value="{{ relative_dir }}" {%- if request.url == '' %}selected{% endif -%}>General</option>
+          <option value="{{ relative_dir }}no-coast/" {%- if 'no-coast' in request.url %}selected{% endif -%}>0-Coast</option>
+          <option value="{{ relative_dir }}eyesy/" {%- if 'eyesy' in request.url %}selected{% endif -%}>Eyesy</option>
         </select>
       </div>
-      <div class="header__group">
-        <div>
-          <label id="save-button-label" class="arc__label" for="save-button">&nbsp;</label>
-          <button id="save-button" class="button"><span class="material-icons">save_alt</span> Save</button>
-        </div>
-        <div>
-          <label id="clear-button-label" class="arc__label" for="clear-button">&nbsp;</label>
-          <button id="clear-button" class="button"><span class="material-icons">clear</span> Clear</button>
-        </div>
+      <div class="header__group header__group--right">
+        <button id="save-button" class="button"><span class="material-icons">tune</span><span class="button__desc"> Save</span></button>
+        <button id="clear-button" class="button"><span class="material-icons">delete</span><span class="button__desc"> Clear</span></button>
       </div>
       {% block header %}{% endblock %}
     </header>
