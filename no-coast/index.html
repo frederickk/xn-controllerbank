@@ -15,28 +15,21 @@
   <body>
     <header>
       
-      <div>
-        <label id="midi-output-label" class="arc__label">Output device</label>
+      <div class="header__item">
+        <span class="material-icons">settings_input_svideo</span>
         <select id="midi-output" class="midi-select"></select>
       </div>
-      <div>
-        <label id="control-template-label" class="arc__label">Control template</label>
-        
-        <select class="midi-select" onchange="window.location.assign(`${this.value}`)">
+      <div class="header__item">
+        <span class="material-icons">piano</span>
+        <select id="control-template" onchange="window.location.assign(`${this.value}`)">
           <option value="../">General</option>
           <option value="../no-coast/"selected>0-Coast</option>
           <option value="../eyesy/">Eyesy</option>
         </select>
       </div>
-      <div class="header__group">
-        <div>
-          <label id="save-button-label" class="arc__label" for="save-button">&nbsp;</label>
-          <button id="save-button" class="button"><span class="material-icons">tune</span><span class="button__desc"> Save</span></button>
-        </div>
-        <div>
-          <label id="clear-button-label" class="arc__label" for="clear-button">&nbsp;</label>
-          <button id="clear-button" class="button"><span class="material-icons">delete</span><span class="button__desc"> Clear</span></button>
-        </div>
+      <div class="header__group header__group--right">
+        <button id="save-button" class="button"><span class="material-icons">tune</span><span class="button__desc"> Save</span></button>
+        <button id="clear-button" class="button"><span class="material-icons">delete</span><span class="button__desc"> Clear</span></button>
       </div>
       
     </header>
@@ -45,196 +38,310 @@
   <div id="container" class="container">
     
       
-        <div class="arc__container">
-          <div id="no-coast-arp-on-off-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Arpeggiator</div>
-          <div id="no-coast-arp-on-off-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-arp-on-off-val1" class="arc__input" data-save="1" value="117" />
-          <div id="no-coast-arp-on-off-label" class="arc__label" for="no-coast-arp-on-off" contenteditable="true">0</div>
-          <input id="no-coast-arp-on-off" name="no-coast-arp-on-off" class="arc" data-save="1" type="range" value="0" max="1" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-arp-on-off-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Arpeggiator</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-arp-on-off-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-arp-on-off-val1" class="controller__input controller__value" data-save="1" value="117" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-arp-on-off" name="no-coast-arp-on-off" class="controller" data-save="1" type="range" value="0" max="1" />
+            <input id="no-coast-arp-on-off-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-arp-type-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Arpeggiator Type</div>
-          <div id="no-coast-arp-type-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-arp-type-val1" class="arc__input" data-save="1" value="119" />
-          <div id="no-coast-arp-type-label" class="arc__label" for="no-coast-arp-type" contenteditable="true">0</div>
-          <input id="no-coast-arp-type" name="no-coast-arp-type" class="arc" data-save="1" type="range" value="0" max="1" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-arp-type-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Arpeggiator Type</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-arp-type-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-arp-type-val1" class="controller__input controller__value" data-save="1" value="119" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-arp-type" name="no-coast-arp-type" class="controller" data-save="1" type="range" value="0" max="1" />
+            <input id="no-coast-arp-type-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-portamento-on-off-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Portamento</div>
-          <div id="no-coast-portamento-on-off-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-portamento-on-off-val1" class="arc__input" data-save="1" value="65" />
-          <div id="no-coast-portamento-on-off-label" class="arc__label" for="no-coast-portamento-on-off" contenteditable="true">0</div>
-          <input id="no-coast-portamento-on-off" name="no-coast-portamento-on-off" class="arc" data-save="1" type="range" value="0" max="1" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-portamento-on-off-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Portamento</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-portamento-on-off-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-portamento-on-off-val1" class="controller__input controller__value" data-save="1" value="65" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-portamento-on-off" name="no-coast-portamento-on-off" class="controller" data-save="1" type="range" value="0" max="1" />
+            <input id="no-coast-portamento-on-off-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-portamento-time-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Portamento Time</div>
-          <div id="no-coast-portamento-time-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-portamento-time-val1" class="arc__input" data-save="1" value="5" />
-          <div id="no-coast-portamento-time-label" class="arc__label" for="no-coast-portamento-time" contenteditable="true">0</div>
-          <input id="no-coast-portamento-time" name="no-coast-portamento-time" class="arc" data-save="1" type="range" value="0" max="127" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-portamento-time-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Portamento Time</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-portamento-time-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-portamento-time-val1" class="controller__input controller__value" data-save="1" value="5" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-portamento-time" name="no-coast-portamento-time" class="controller" data-save="1" type="range" value="0" max="127" />
+            <input id="no-coast-portamento-time-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-legato-control-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Legato Control</div>
-          <div id="no-coast-legato-control-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-legato-control-val1" class="arc__input" data-save="1" value="118" />
-          <div id="no-coast-legato-control-label" class="arc__label" for="no-coast-legato-control" contenteditable="true">0</div>
-          <input id="no-coast-legato-control" name="no-coast-legato-control" class="arc" data-save="1" type="range" value="0" max="1" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-legato-control-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Legato Control</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-legato-control-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-legato-control-val1" class="controller__input controller__value" data-save="1" value="118" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-legato-control" name="no-coast-legato-control" class="controller" data-save="1" type="range" value="0" max="1" />
+            <input id="no-coast-legato-control-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container"></div>
-      
+        <div class="controller__container"></div>
+        
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-clock-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi Clock</div>
-          <div id="no-coast-midi-clock-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-clock-val1" class="arc__input" data-save="1" value="114" />
-          <div id="no-coast-midi-clock-label" class="arc__label" for="no-coast-midi-clock" contenteditable="true">1</div>
-          <input id="no-coast-midi-clock" name="no-coast-midi-clock" class="arc" data-save="1" type="range" value="1" max="1" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-clock-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi Clock</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-clock-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-clock-val1" class="controller__input controller__value" data-save="1" value="114" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-clock" name="no-coast-midi-clock" class="controller" data-save="1" type="range" value="1" max="1" />
+            <input id="no-coast-midi-clock-label" class="controller__input controller__value" data-save="1" value="1" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-tempo-div-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Tempo Division</div>
-          <div id="no-coast-tempo-div-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-tempo-div-val1" class="arc__input" data-save="1" value="116" />
-          <div id="no-coast-tempo-div-label" class="arc__label" for="no-coast-tempo-div" contenteditable="true">1</div>
-          <input id="no-coast-tempo-div" name="no-coast-tempo-div" class="arc" data-save="1" type="range" value="1" max="127" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-tempo-div-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Tempo Division</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-tempo-div-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-tempo-div-val1" class="controller__input controller__value" data-save="1" value="116" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-tempo-div" name="no-coast-tempo-div" class="controller" data-save="1" type="range" value="1" max="127" />
+            <input id="no-coast-tempo-div-label" class="controller__input controller__value" data-save="1" value="1" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-a-channel-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi A Channel</div>
-          <div id="no-coast-midi-a-channel-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-a-channel-val1" class="arc__input" data-save="1" value="102" />
-          <div id="no-coast-midi-a-channel-label" class="arc__label" for="no-coast-midi-a-channel" contenteditable="true">16</div>
-          <input id="no-coast-midi-a-channel" name="no-coast-midi-a-channel" class="arc" data-save="1" type="range" value="16" max="16" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-a-channel-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A Channel</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-a-channel-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-a-channel-val1" class="controller__input controller__value" data-save="1" value="102" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-a-channel" name="no-coast-midi-a-channel" class="controller" data-save="1" type="range" value="16" max="16" />
+            <input id="no-coast-midi-a-channel-label" class="controller__input controller__value" data-save="1" value="16" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-b-channel-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi B Channel</div>
-          <div id="no-coast-midi-b-channel-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-b-channel-val1" class="arc__input" data-save="1" value="103" />
-          <div id="no-coast-midi-b-channel-label" class="arc__label" for="no-coast-midi-b-channel" contenteditable="true">16</div>
-          <input id="no-coast-midi-b-channel" name="no-coast-midi-b-channel" class="arc" data-save="1" type="range" value="16" max="16" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-b-channel-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B Channel</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-b-channel-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-b-channel-val1" class="controller__input controller__value" data-save="1" value="103" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-b-channel" name="no-coast-midi-b-channel" class="controller" data-save="1" type="range" value="16" max="16" />
+            <input id="no-coast-midi-b-channel-label" class="controller__input controller__value" data-save="1" value="16" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-a-cv-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi A CV</div>
-          <div id="no-coast-midi-a-cv-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-a-cv-val1" class="arc__input" data-save="1" value="104" />
-          <div id="no-coast-midi-a-cv-label" class="arc__label" for="no-coast-midi-a-cv" contenteditable="true">3</div>
-          <input id="no-coast-midi-a-cv" name="no-coast-midi-a-cv" class="arc" data-save="1" type="range" value="3" max="3" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-a-cv-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A CV</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-a-cv-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-a-cv-val1" class="controller__input controller__value" data-save="1" value="104" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-a-cv" name="no-coast-midi-a-cv" class="controller" data-save="1" type="range" value="3" max="3" />
+            <input id="no-coast-midi-a-cv-label" class="controller__input controller__value" data-save="1" value="3" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-b-cv-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi B CV</div>
-          <div id="no-coast-midi-b-cv-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-b-cv-val1" class="arc__input" data-save="1" value="105" />
-          <div id="no-coast-midi-b-cv-label" class="arc__label" for="no-coast-midi-b-cv" contenteditable="true">3</div>
-          <input id="no-coast-midi-b-cv" name="no-coast-midi-b-cv" class="arc" data-save="1" type="range" value="3" max="3" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-b-cv-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B CV</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-b-cv-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-b-cv-val1" class="controller__input controller__value" data-save="1" value="105" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-b-cv" name="no-coast-midi-b-cv" class="controller" data-save="1" type="range" value="3" max="3" />
+            <input id="no-coast-midi-b-cv-label" class="controller__input controller__value" data-save="1" value="3" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-a-gate-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi A Gate</div>
-          <div id="no-coast-midi-a-gate-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-a-gate-val1" class="arc__input" data-save="1" value="106" />
-          <div id="no-coast-midi-a-gate-label" class="arc__label" for="no-coast-midi-a-gate" contenteditable="true">3</div>
-          <input id="no-coast-midi-a-gate" name="no-coast-midi-a-gate" class="arc" data-save="1" type="range" value="3" max="3" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-a-gate-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A Gate</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-a-gate-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-a-gate-val1" class="controller__input controller__value" data-save="1" value="106" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-a-gate" name="no-coast-midi-a-gate" class="controller" data-save="1" type="range" value="3" max="3" />
+            <input id="no-coast-midi-a-gate-label" class="controller__input controller__value" data-save="1" value="3" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-b-gate-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi B Gate</div>
-          <div id="no-coast-midi-b-gate-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-b-gate-val1" class="arc__input" data-save="1" value="107" />
-          <div id="no-coast-midi-b-gate-label" class="arc__label" for="no-coast-midi-b-gate" contenteditable="true">3</div>
-          <input id="no-coast-midi-b-gate" name="no-coast-midi-b-gate" class="arc" data-save="1" type="range" value="3" max="3" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-b-gate-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B Gate</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-b-gate-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-b-gate-val1" class="controller__input controller__value" data-save="1" value="107" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-b-gate" name="no-coast-midi-b-gate" class="controller" data-save="1" type="range" value="3" max="3" />
+            <input id="no-coast-midi-b-gate-label" class="controller__input controller__value" data-save="1" value="3" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-a-pitch-bend-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi A Pitch Bend Scale</div>
-          <div id="no-coast-midi-a-pitch-bend-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-a-pitch-bend-val1" class="arc__input" data-save="1" value="108" />
-          <div id="no-coast-midi-a-pitch-bend-label" class="arc__label" for="no-coast-midi-a-pitch-bend" contenteditable="true">0</div>
-          <input id="no-coast-midi-a-pitch-bend" name="no-coast-midi-a-pitch-bend" class="arc" data-save="1" type="range" value="0" max="127" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-a-pitch-bend-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A Pitch Bend Scale</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-a-pitch-bend-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-a-pitch-bend-val1" class="controller__input controller__value" data-save="1" value="108" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-a-pitch-bend" name="no-coast-midi-a-pitch-bend" class="controller" data-save="1" type="range" value="0" max="127" />
+            <input id="no-coast-midi-a-pitch-bend-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-b-pitch-bend-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi B Pitch Bend Scale</div>
-          <div id="no-coast-midi-b-pitch-bend-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-b-pitch-bend-val1" class="arc__input" data-save="1" value="109" />
-          <div id="no-coast-midi-b-pitch-bend-label" class="arc__label" for="no-coast-midi-b-pitch-bend" contenteditable="true">0</div>
-          <input id="no-coast-midi-b-pitch-bend" name="no-coast-midi-b-pitch-bend" class="arc" data-save="1" type="range" value="0" max="127" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-b-pitch-bend-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B Pitch Bend Scale</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-b-pitch-bend-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-b-pitch-bend-val1" class="controller__input controller__value" data-save="1" value="109" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-b-pitch-bend" name="no-coast-midi-b-pitch-bend" class="controller" data-save="1" type="range" value="0" max="127" />
+            <input id="no-coast-midi-b-pitch-bend-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-a-pitch-bend-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi A After Scale</div>
-          <div id="no-coast-midi-a-pitch-bend-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-a-pitch-bend-val1" class="arc__input" data-save="1" value="110" />
-          <div id="no-coast-midi-a-pitch-bend-label" class="arc__label" for="no-coast-midi-a-pitch-bend" contenteditable="true">0</div>
-          <input id="no-coast-midi-a-pitch-bend" name="no-coast-midi-a-pitch-bend" class="arc" data-save="1" type="range" value="0" max="127" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-a-pitch-bend-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A After Scale</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-a-pitch-bend-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-a-pitch-bend-val1" class="controller__input controller__value" data-save="1" value="110" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-a-pitch-bend" name="no-coast-midi-a-pitch-bend" class="controller" data-save="1" type="range" value="0" max="127" />
+            <input id="no-coast-midi-a-pitch-bend-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-b-pitch-bend-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi B After Scale</div>
-          <div id="no-coast-midi-b-pitch-bend-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-b-pitch-bend-val1" class="arc__input" data-save="1" value="111" />
-          <div id="no-coast-midi-b-pitch-bend-label" class="arc__label" for="no-coast-midi-b-pitch-bend" contenteditable="true">0</div>
-          <input id="no-coast-midi-b-pitch-bend" name="no-coast-midi-b-pitch-bend" class="arc" data-save="1" type="range" value="0" max="127" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-b-pitch-bend-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B After Scale</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-b-pitch-bend-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-b-pitch-bend-val1" class="controller__input controller__value" data-save="1" value="111" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-b-pitch-bend" name="no-coast-midi-b-pitch-bend" class="controller" data-save="1" type="range" value="0" max="127" />
+            <input id="no-coast-midi-b-pitch-bend-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-a-pitch-bend-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi A Velocity Scale</div>
-          <div id="no-coast-midi-a-pitch-bend-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-a-pitch-bend-val1" class="arc__input" data-save="1" value="112" />
-          <div id="no-coast-midi-a-pitch-bend-label" class="arc__label" for="no-coast-midi-a-pitch-bend" contenteditable="true">0</div>
-          <input id="no-coast-midi-a-pitch-bend" name="no-coast-midi-a-pitch-bend" class="arc" data-save="1" type="range" value="0" max="127" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-a-pitch-bend-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A Velocity Scale</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-a-pitch-bend-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-a-pitch-bend-val1" class="controller__input controller__value" data-save="1" value="112" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-a-pitch-bend" name="no-coast-midi-a-pitch-bend" class="controller" data-save="1" type="range" value="0" max="127" />
+            <input id="no-coast-midi-a-pitch-bend-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
       
-        <div class="arc__container">
-          <div id="no-coast-midi-b-pitch-bend-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Midi B Velocity Scale</div>
-          <div id="no-coast-midi-b-pitch-bend-val1-label" class="arc__label">CC Number</div>
-          <input id="no-coast-midi-b-pitch-bend-val1" class="arc__input" data-save="1" value="113" />
-          <div id="no-coast-midi-b-pitch-bend-label" class="arc__label" for="no-coast-midi-b-pitch-bend" contenteditable="true">0</div>
-          <input id="no-coast-midi-b-pitch-bend" name="no-coast-midi-b-pitch-bend" class="arc" data-save="1" type="range" value="0" max="127" />
+        <div class="controller__container">
+          <div class="controller__group">
+            <div id="no-coast-midi-b-pitch-bend-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B Velocity Scale</div>
+          </div>
+          <div class="controller__group">
+            <div id="no-coast-midi-b-pitch-bend-val1-label" class="controller__label">CC Number</div>
+            <input id="no-coast-midi-b-pitch-bend-val1" class="controller__input controller__value" data-save="1" value="113" />
+          </div>
+          <div class="controller__group">
+            <input id="no-coast-midi-b-pitch-bend" name="no-coast-midi-b-pitch-bend" class="controller" data-save="1" type="range" value="0" max="127" />
+            <input id="no-coast-midi-b-pitch-bend-label" class="controller__input controller__value" data-save="1" value="0" />
+          </div>
         </div>
       
     
