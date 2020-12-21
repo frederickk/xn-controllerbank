@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="apple-touch-icon" href="../images/icon-192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="../manifest.json" />
+    <title>Webmidi Controller</title>
+    <link rel="stylesheet" href="../index.css" />
+  </head>
+
+  <body>
+    <header>
+      
+      <div>
+        <label id="midi-output-label" class="arc__label">Output device</label>
+        <select id="midi-output" class="midi-select"></select>
+      </div>
+      <div>
+        <label id="control-template-label" class="arc__label">Control template</label>
+        
+        <select class="midi-select" onchange="window.location.assign(`${this.value}`)">
+          <option value="../">General</option>
+          <option value="../no-coast/">0-Coast</option>
+          <option value="../eyesy/"selected>Eyesy</option>
+        </select>
+      </div>
+      <div class="header__group">
+        <div>
+          <label id="save-button-label" class="arc__label" for="save-button">&nbsp;</label>
+          <button id="save-button" class="button"><span class="material-icons">tune</span><span class="button__desc"> Save</span></button>
+        </div>
+        <div>
+          <label id="clear-button-label" class="arc__label" for="clear-button">&nbsp;</label>
+          <button id="clear-button" class="button"><span class="material-icons">delete</span><span class="button__desc"> Clear</span></button>
+        </div>
+      </div>
+      
+    </header>
+
+    
+  <div id="container" class="container">
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-mode-params-1-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Mode Params</div>
+          <div id="eyesy-mode-params-1-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-mode-params-1-val1" class="arc__input" data-save="1" value="21" />
+          <div id="eyesy-mode-params-1-label" class="arc__label" for="eyesy-mode-params-1" contenteditable="true">0</div>
+          <input id="eyesy-mode-params-1" name="eyesy-mode-params-1" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-mode-params-2-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Mode Params</div>
+          <div id="eyesy-mode-params-2-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-mode-params-2-val1" class="arc__input" data-save="1" value="22" />
+          <div id="eyesy-mode-params-2-label" class="arc__label" for="eyesy-mode-params-2" contenteditable="true">0</div>
+          <input id="eyesy-mode-params-2" name="eyesy-mode-params-2" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-mode-params-3-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Mode Params</div>
+          <div id="eyesy-mode-params-3-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-mode-params-3-val1" class="arc__input" data-save="1" value="23" />
+          <div id="eyesy-mode-params-3-label" class="arc__label" for="eyesy-mode-params-3" contenteditable="true">0</div>
+          <input id="eyesy-mode-params-3" name="eyesy-mode-params-3" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-mode-params-4-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Mode Params</div>
+          <div id="eyesy-mode-params-4-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-mode-params-4-val1" class="arc__input" data-save="1" value="24" />
+          <div id="eyesy-mode-params-4-label" class="arc__label" for="eyesy-mode-params-4" contenteditable="true">0</div>
+          <input id="eyesy-mode-params-4" name="eyesy-mode-params-4" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-background-color-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Background Color</div>
+          <div id="eyesy-background-color-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-background-color-val1" class="arc__input" data-save="1" value="26" />
+          <div id="eyesy-background-color-label" class="arc__label" for="eyesy-background-color" contenteditable="true">0</div>
+          <input id="eyesy-background-color" name="eyesy-background-color" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-background-color-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Background Color</div>
+          <div id="eyesy-background-color-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-background-color-val1" class="arc__input" data-save="1" value="26" />
+          <div id="eyesy-background-color-label" class="arc__label" for="eyesy-background-color" contenteditable="true">0</div>
+          <input id="eyesy-background-color" name="eyesy-background-color" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-scene-selection-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Scene Selection</div>
+          <div id="eyesy-scene-selection-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-scene-selection-val1" class="arc__input" data-save="1" value="26" />
+          <div id="eyesy-scene-selection-label" class="arc__label" for="eyesy-scene-selection" contenteditable="true">0</div>
+          <input id="eyesy-scene-selection" name="eyesy-scene-selection" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-save-delete-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Save or Delete</div>
+          <div id="eyesy-save-delete-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-save-delete-val1" class="arc__input" data-save="1" value="27" />
+          <div id="eyesy-save-delete-label" class="arc__label" for="eyesy-save-delete" contenteditable="true">0</div>
+          <input id="eyesy-save-delete" name="eyesy-save-delete" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-auto-clear-toggle-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Auto Clear Toggle</div>
+          <div id="eyesy-auto-clear-toggle-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-auto-clear-toggle-val1" class="arc__input" data-save="1" value="28" />
+          <div id="eyesy-auto-clear-toggle-label" class="arc__label" for="eyesy-auto-clear-toggle" contenteditable="true">0</div>
+          <input id="eyesy-auto-clear-toggle" name="eyesy-auto-clear-toggle" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-mode-selection-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Mode Selection</div>
+          <div id="eyesy-mode-selection-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-mode-selection-val1" class="arc__input" data-save="1" value="29" />
+          <div id="eyesy-mode-selection-label" class="arc__label" for="eyesy-mode-selection" contenteditable="true">0</div>
+          <input id="eyesy-mode-selection" name="eyesy-mode-selection" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-take-screenshot-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Take Screenshot</div>
+          <div id="eyesy-take-screenshot-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-take-screenshot-val1" class="arc__input" data-save="1" value="30" />
+          <div id="eyesy-take-screenshot-label" class="arc__label" for="eyesy-take-screenshot" contenteditable="true">0</div>
+          <input id="eyesy-take-screenshot" name="eyesy-take-screenshot" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-info-display-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Info Display</div>
+          <div id="eyesy-info-display-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-info-display-val1" class="arc__input" data-save="1" value="31" />
+          <div id="eyesy-info-display-label" class="arc__label" for="eyesy-info-display" contenteditable="true">0</div>
+          <input id="eyesy-info-display" name="eyesy-info-display" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-send-trigger-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Send Trigger</div>
+          <div id="eyesy-send-trigger-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-send-trigger-val1" class="arc__input" data-save="1" value="32" />
+          <div id="eyesy-send-trigger-label" class="arc__label" for="eyesy-send-trigger" contenteditable="true">0</div>
+          <input id="eyesy-send-trigger" name="eyesy-send-trigger" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-shift-key-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Shift key</div>
+          <div id="eyesy-shift-key-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-shift-key-val1" class="arc__input" data-save="1" value="33" />
+          <div id="eyesy-shift-key-label" class="arc__label" for="eyesy-shift-key" contenteditable="true">0</div>
+          <input id="eyesy-shift-key" name="eyesy-shift-key" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-input-gain-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Input Gain</div>
+          <div id="eyesy-input-gain-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-input-gain-val1" class="arc__input" data-save="1" value="34" />
+          <div id="eyesy-input-gain-label" class="arc__label" for="eyesy-input-gain" contenteditable="true">0</div>
+          <input id="eyesy-input-gain" name="eyesy-input-gain" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+      
+        <div class="arc__container">
+          <div id="eyesy-trigger-source-name" class="arc__label arc__label--white" data-save="1" contenteditable="true">Trigger Source</div>
+          <div id="eyesy-trigger-source-val1-label" class="arc__label">CC Number</div>
+          <input id="eyesy-trigger-source-val1" class="arc__input" data-save="1" value="35" />
+          <div id="eyesy-trigger-source-label" class="arc__label" for="eyesy-trigger-source" contenteditable="true">0</div>
+          <input id="eyesy-trigger-source" name="eyesy-trigger-source" class="arc" data-save="1" type="range" value="0" max="" />
+        </div>
+      
+    
+  </div>
+
+
+    <script src="../index.js"></script>
+  </body>
+</html>
