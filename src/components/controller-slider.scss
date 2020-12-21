@@ -1,0 +1,26 @@
+@import '../sass/mixins';
+@import './_input';
+@import './_label';
+
+:host {
+  width: 100%;
+
+  #group {
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 1em 0 0;
+    width: 100%;
+
+    input[type=range] {
+      @include input-range-base;
+
+      flex: 6;
+    }
+
+    input[type=number] {
+      @include input-base;
+
+      min-width: 9ch;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import '../sass/mixins';
+@import './_input';
+@import './_label';
+
+:host {
+  width: 100%;
+
+  #group {
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 1em 0 0;
+    width: 100%;
+
+    div[id$=-label] {
+      @include label-base;
+
+      cursor: default;
+      flex: 6;
+      overflow: visible;
+      text-align: left;
+
+      slot {
+        display: block;
+        line-height: 0;
+        position: relative;
+        top: 50%;
+      }
+    }
+
+    input[type=number] {
+      @include input-base;
+
+      min-width: 9ch;
+    }
+  }
+}

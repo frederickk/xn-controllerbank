@@ -1,7 +1,19 @@
+declare global {
+  interface Window {
+    Midi: any;
+  }
+}
+
 export class MidiHelper {
+  AFTERTOUCH = 0xA0;
+  CC = 0xB0;
+  CHANNEL_PRESSURE = 0xD0;
   NOTE_ON = 0x90;
   NOTE_OFF = 0x80;
-  CC = 0xB0;
+  PATCH_CHANGE = 0xC0;
+  PITCH_BEND = 0xE0;
+  PROGRAM_CHANGE = 0xC0;
+  SYSTEM = 0xF0
 
   private midiIn_: WebMidi.MIDIInput[] = [];
   private midiOut_: WebMidi.MIDIOutput[] = [];
@@ -53,6 +65,20 @@ export class MidiHelper {
     }
   }
 
+  private incrementHex_(hexVal: string|number, inc: string|number) {
+    const add = parseInt(hexVal.toString()) + parseInt(inc.toString());
+
+    return parseInt(add.toString(16), 16);
+  }
+
+  private send_(msg: Array<number>, duration: number|undefined) {
+    if (this.selectOut_) {
+      console.log('Midi.send', msg, duration);
+      const device: WebMidi.MIDIOutput = this.midiOut_[this.selectOut_.selectedIndex];
+      device?.send(msg, duration);
+    }
+  }
+
   async connect() {
     await (navigator as Navigator)
     .requestMIDIAccess()
@@ -61,28 +87,21 @@ export class MidiHelper {
         (err: Error) => console.log('Something went wrong', err));
   }
 
-  noteOn(pitch: number, velocity: number) {
-    const msgOn = [this.NOTE_ON, pitch, velocity];
-
-    if (this.selectOut_) {
-      const device: WebMidi.MIDIOutput = this.midiOut_[this.selectOut_.selectedIndex];
-      device.send(msgOn);
-    }
+  /** Send Midi note on message. */
+  noteOn(pitch: number, velocity: number, channel = 0) {
+    const msgOn = [this.incrementHex_(this.NOTE_ON, channel), pitch, velocity];
+    this.send_(msgOn, undefined);
   }
 
-  noteOff(pitch: number, duration: number) {
-    const msgOff = [this.NOTE_ON, pitch, 0];
-
-    if (this.selectOut_) {
-      const device: WebMidi.MIDIOutput = this.midiOut_[this.selectOut_.selectedIndex];
-      device.send(msgOff, Date.now() + duration);
-    }
+  /** Send Midi note off message. */
+  noteOff(pitch: number, duration: number, channel = 0) {
+    const msgOff = [this.incrementHex_(this.NOTE_ON, channel), pitch, 0];
+    this.send_(msgOff, Date.now() + duration);
   }
 
-  sendMessage(msg: number, value1: number, value2: number) {
-    if (this.selectOut_) {
-      const device: WebMidi.MIDIOutput = this.midiOut_[this.selectOut_.selectedIndex];
-      device.send([msg, value1, value2]);
-    }
+  /** Send Midi generic message. */
+  sendMessage(msg: number, value1: number, value2: number, channel = 0) {
+    const msg_ = this.incrementHex_(msg, channel);
+    this.send_([msg_, value1, value2], undefined);
   }
 }

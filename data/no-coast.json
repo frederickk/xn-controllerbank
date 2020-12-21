@@ -1,0 +1,117 @@
+[{
+  "id": "no-coast-arp-on-off",
+  "label": "Arpeggiator",
+  "ccnum": 117,
+  "default": 0,
+  "max": 1
+}, {
+  "id": "no-coast-arp-type",
+  "label": "Arpeggiator Type",
+  "ccnum": 119,
+  "default": 0,
+  "max": 1
+}, {
+  "id": "no-coast-portamento-on-off",
+  "label": "Portamento",
+  "ccnum": 65,
+  "default": 0,
+  "max": 1
+}, {
+  "id": "no-coast-portamento-time",
+  "label": "Portamento Time",
+  "ccnum": 5,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "no-coast-legato-control",
+  "label": "Legato Control",
+  "ccnum": 118,
+  "default": 0,
+  "max": 1
+}, {
+  "type": "spacer"
+}, {
+  "id": "no-coast-midi-clock",
+  "label": "Midi Clock",
+  "ccnum": 114,
+  "default": 1,
+  "max": 1
+}, {
+  "id": "no-coast-tempo-div",
+  "label": "Tempo Division",
+  "ccnum": 116,
+  "default": 1,
+  "max": 127
+}, {
+  "id": "no-coast-midi-a-ccnum",
+  "label": "Midi A Channel",
+  "ccnum": 102,
+  "default": 16,
+  "max": 16
+}, {
+  "id": "no-coast-midi-b-ccnum",
+  "label": "Midi B Channel",
+  "ccnum": 103,
+  "default": 16,
+  "max": 16
+}, {
+  "id": "no-coast-midi-a-cv",
+  "label": "Midi A CV",
+  "ccnum": 104,
+  "default": 3,
+  "max": 3
+}, {
+  "id": "no-coast-midi-b-cv",
+  "label": "Midi B CV",
+  "ccnum": 105,
+  "default": 3,
+  "max": 3
+}, {
+  "id": "no-coast-midi-a-gate",
+  "label": "Midi A Gate",
+  "ccnum": 106,
+  "default": 3,
+  "max": 3
+}, {
+  "id": "no-coast-midi-b-gate",
+  "label": "Midi B Gate",
+  "ccnum": 107,
+  "default": 3,
+  "max": 3
+}, {
+  "id": "no-coast-midi-a-pitch-bend",
+  "label": "Midi A Pitch Bend Scale",
+  "ccnum": 108,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "no-coast-midi-b-pitch-bend",
+  "label": "Midi B Pitch Bend Scale",
+  "ccnum": 109,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "no-coast-midi-a-after-scale",
+  "label": "Midi A After Scale",
+  "ccnum": 110,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "no-coast-midi-b-after-scale",
+  "label": "Midi B After Scale",
+  "ccnum": 111,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "no-coast-midi-a-velocity-scale",
+  "label": "Midi A Velocity Scale",
+  "ccnum": 112,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "no-coast-midi-b-velocity-scale",
+  "label": "Midi B Velocity Scale",
+  "ccnum": 113,
+  "default": 0,
+  "max": 127
+}]

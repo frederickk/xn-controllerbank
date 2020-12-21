@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Material+Icons&display=swap');
+@import 'sass/mixins';
 
 :root {
-  --default-background: #222;
-  --default-border-radius: 4px;
-  --type-color: darkgray;
-  --type-color--hover: white;
+  --background: #000;
+  --light-background: #222;
+  --light-background--hover: #333;
+  --border-radius: 4px;
+  --type-color: #aaa;
+  --type-color--hover: #fff;
+  --error-color: #f00;
+  --transition-ms: 100ms;
 }
 
 body {
-  background-color: black;
-  color: var(--type-color);
+  background-color: var(--background, #000);
+  color: var(--type-color, #aaa);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -21,130 +26,46 @@ body {
   width: 100%;
 }
 
-header,
-.header {
+header {
+  @include mq-min(768px) {
+    max-height: 70px;
+  }
+
   align-items: center;
-  background: black;
-  display: flex;
-  justify-content: space-around;
-  padding-bottom: 1em;
+  background: var(--background, #000);
+  justify-content: space-between;
+  margin-top: 0 !important;
+  max-height: 100px;
+  overflow: hidden;
   position: fixed;
-  width: 100%;
+  z-index: 1000;
 
-  &__group {
-    div {
-      float: left;
+  & .align--right {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  controller-group {
+     @include mq-min(768px) {
+      flex: 1;
     }
-  }
 
-  .material-icons {
-    line-height: 0;
-    vertical-align: middle;
-  }
-}
-
-select,
-.button,
-.midi-select {
-  background-color: var(--default-background);
-  color: var(--type-color);
-  cursor: pointer;
-  border: 0;
-  border-radius: var(--default-border-radius);
-  font-family: inherit;
-  font-size: inherit;
-  margin: 0 1em;
-  padding: 1em;
-  transition: color 100ms ease-in-out;
-
-  &:hover {
-    color: var(--type-color--hover);
+    flex: 2;
+    margin: 0 1vw;
   }
 }
 
 .container {
-  align-self: center;
+  @include mq-min(768px) {
+    margin-top: 100px;
+  }
+
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 100px;
-  padding: 1vw;
+  justify-content: flex-start;
+  margin-top: 70px;
+  overflow-x: hidden;
+  padding: 0 1vw 1vw;
   width: 100%;
-}
-
-.arc {
-  width: 100%;
-
-  &--width-25 {
-    width: 20%;
-  }
-
-  &__container {
-    border-top: 1px var(--default-background) solid;
-    flex: 1 0 21%;
-    margin: 1vw;
-  }
-
-  &__label {
-    display: block;
-    margin: 1em 0;
-    transition: color 100ms ease-in-out;
-
-    &--white,
-    &:hover {
-      color: var(--type-color--hover);
-    }
-  }
-
-  &__input {
-    appearance: none;
-    background-color: var(--default-background);
-    color: var(--type-color);
-    border: 0;
-    display: block;
-    font-family: inherit;
-    padding: 1em;
-    transition: color 100ms ease-in-out;
-    width: 94%;
-
-    &:hover {
-      color: var(--type-color--hover);
-    }
-  }
-}
-
-input[type=range] {
-  -webkit-appearance: none;
-  background: transparent;
-  width: 100%;
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background-color: var(--type-color);
-    border-radius: 50%;
-    cursor: pointer;
-    height: 2em;
-    transition: background-color 100ms ease-in-out;
-    width: 2em;
-
-    &:hover {
-      background-color: var(--type-color--hover);
-    }
-  }
-
-  &::-webkit-slider-runnable-track {
-    background: var(--default-background);
-    border-radius: 1em;
-    cursor: pointer;
-    height: 2em;
-  }
-
-  &::-ms-track {
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-    cursor: pointer;
-    width: 100%;
-  }
 }
