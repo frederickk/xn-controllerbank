@@ -13,237 +13,275 @@
   </head>
 
   <body>
-    <header>
+    <header class="container">
       
-      <div class="header__item">
-        <span class="material-icons">settings_input_svideo</span>
-        <select id="midi-output" class="midi-select"></select>
-      </div>
-      <div class="header__item">
-        <span class="material-icons">piano</span>
+
+      <controller-group icon="icons:arrow-upward">
+        <select id="midi-output"></select>
+      </controller-group>
+
+      <controller-group icon="image:music-note">
+        
         <select id="control-template" onchange="window.location.assign(`${this.value}`)">
           <option value="./"selected>General</option>
           <option value="./no-coast/">0-Coast</option>
           <option value="./eyesy/">Eyesy</option>
+          <option value="./opz/">OP-Z</option>
         </select>
-      </div>
-      <div class="header__group header__group--right">
-        <button id="save-button" class="button"><span class="material-icons">tune</span><span class="button__desc"> Save</span></button>
-        <button id="clear-button" class="button"><span class="material-icons">delete</span><span class="button__desc"> Clear</span></button>
-      </div>
+      </controller-group>
+
+      <controller-group class="align--right">
+        <div>
+          
+          <controller-button id="save-button" icon="image:tune" title="Save"></controller-button>
+          <controller-button id="clear-button" icon="icons:delete" title="Clear" onclick="localStorage.clear();"></controller-button>
+        </div>
+      </controller-group>
       
     </header>
 
     
   <div id="container" class="container">
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller1-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 1</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller1-val1-label" class="controller__label">CC Number</div>
-          <input id="controller1-val1" class="controller__input controller__value" data-save="1" value="1" />
-        </div>
-        <div class="controller__group">
-          <input id="controller1" name="controller1" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller1-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller2-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 2</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller2-val1-label" class="controller__label">CC Number</div>
-          <input id="controller2-val1" class="controller__input controller__value" data-save="1" value="2" />
-        </div>
-        <div class="controller__group">
-          <input id="controller2" name="controller2" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller2-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller3-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 3</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller3-val1-label" class="controller__label">CC Number</div>
-          <input id="controller3-val1" class="controller__input controller__value" data-save="1" value="3" />
-        </div>
-        <div class="controller__group">
-          <input id="controller3" name="controller3" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller3-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller4-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 4</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller4-val1-label" class="controller__label">CC Number</div>
-          <input id="controller4-val1" class="controller__input controller__value" data-save="1" value="4" />
-        </div>
-        <div class="controller__group">
-          <input id="controller4" name="controller4" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller4-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller5-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 5</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller5-val1-label" class="controller__label">CC Number</div>
-          <input id="controller5-val1" class="controller__input controller__value" data-save="1" value="5" />
-        </div>
-        <div class="controller__group">
-          <input id="controller5" name="controller5" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller5-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller6-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 6</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller6-val1-label" class="controller__label">CC Number</div>
-          <input id="controller6-val1" class="controller__input controller__value" data-save="1" value="6" />
-        </div>
-        <div class="controller__group">
-          <input id="controller6" name="controller6" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller6-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller7-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 7</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller7-val1-label" class="controller__label">CC Number</div>
-          <input id="controller7-val1" class="controller__input controller__value" data-save="1" value="7" />
-        </div>
-        <div class="controller__group">
-          <input id="controller7" name="controller7" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller7-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller8-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 8</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller8-val1-label" class="controller__label">CC Number</div>
-          <input id="controller8-val1" class="controller__input controller__value" data-save="1" value="8" />
-        </div>
-        <div class="controller__group">
-          <input id="controller8" name="controller8" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller8-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller9-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 9</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller9-val1-label" class="controller__label">CC Number</div>
-          <input id="controller9-val1" class="controller__input controller__value" data-save="1" value="9" />
-        </div>
-        <div class="controller__group">
-          <input id="controller9" name="controller9" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller9-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller10-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 10</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller10-val1-label" class="controller__label">CC Number</div>
-          <input id="controller10-val1" class="controller__input controller__value" data-save="1" value="10" />
-        </div>
-        <div class="controller__group">
-          <input id="controller10" name="controller10" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller10-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller11-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 11</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller11-val1-label" class="controller__label">CC Number</div>
-          <input id="controller11-val1" class="controller__input controller__value" data-save="1" value="11" />
-        </div>
-        <div class="controller__group">
-          <input id="controller11" name="controller11" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller11-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller12-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 12</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller12-val1-label" class="controller__label">CC Number</div>
-          <input id="controller12-val1" class="controller__input controller__value" data-save="1" value="12" />
-        </div>
-        <div class="controller__group">
-          <input id="controller12" name="controller12" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller12-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller13-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 13</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller13-val1-label" class="controller__label">CC Number</div>
-          <input id="controller13-val1" class="controller__input controller__value" data-save="1" value="13" />
-        </div>
-        <div class="controller__group">
-          <input id="controller13" name="controller13" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller13-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller14-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 14</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller14-val1-label" class="controller__label">CC Number</div>
-          <input id="controller14-val1" class="controller__input controller__value" data-save="1" value="14" />
-        </div>
-        <div class="controller__group">
-          <input id="controller14" name="controller14" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller14-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller15-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 15</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller15-val1-label" class="controller__label">CC Number</div>
-          <input id="controller15-val1" class="controller__input controller__value" data-save="1" value="15" />
-        </div>
-        <div class="controller__group">
-          <input id="controller15" name="controller15" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller15-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
-    <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller16-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller 16</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller16-val1-label" class="controller__label">CC Number</div>
-          <input id="controller16-val1" class="controller__input controller__value" data-save="1" value="16" />
-        </div>
-        <div class="controller__group">
-          <input id="controller16" name="controller16" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller16-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
+    <controller-container>
+        <controller-group>
+          <div id="controller1-name" data-save="1" contenteditable="true">Controller 1</div>
+        </controller-group>
+
+        <controller-input id="controller1-channel" for="controller1" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller1-cc" for="controller1" data-attr="ccnum" value="1">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller1-slider" name="controller1" data-attr="cc" ccnum="1" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller2-name" data-save="1" contenteditable="true">Controller 2</div>
+        </controller-group>
+
+        <controller-input id="controller2-channel" for="controller2" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller2-cc" for="controller2" data-attr="ccnum" value="2">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller2-slider" name="controller2" data-attr="cc" ccnum="2" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller3-name" data-save="1" contenteditable="true">Controller 3</div>
+        </controller-group>
+
+        <controller-input id="controller3-channel" for="controller3" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller3-cc" for="controller3" data-attr="ccnum" value="3">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller3-slider" name="controller3" data-attr="cc" ccnum="3" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller4-name" data-save="1" contenteditable="true">Controller 4</div>
+        </controller-group>
+
+        <controller-input id="controller4-channel" for="controller4" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller4-cc" for="controller4" data-attr="ccnum" value="4">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller4-slider" name="controller4" data-attr="cc" ccnum="4" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller5-name" data-save="1" contenteditable="true">Controller 5</div>
+        </controller-group>
+
+        <controller-input id="controller5-channel" for="controller5" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller5-cc" for="controller5" data-attr="ccnum" value="5">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller5-slider" name="controller5" data-attr="cc" ccnum="5" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller6-name" data-save="1" contenteditable="true">Controller 6</div>
+        </controller-group>
+
+        <controller-input id="controller6-channel" for="controller6" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller6-cc" for="controller6" data-attr="ccnum" value="6">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller6-slider" name="controller6" data-attr="cc" ccnum="6" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller7-name" data-save="1" contenteditable="true">Controller 7</div>
+        </controller-group>
+
+        <controller-input id="controller7-channel" for="controller7" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller7-cc" for="controller7" data-attr="ccnum" value="7">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller7-slider" name="controller7" data-attr="cc" ccnum="7" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller8-name" data-save="1" contenteditable="true">Controller 8</div>
+        </controller-group>
+
+        <controller-input id="controller8-channel" for="controller8" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller8-cc" for="controller8" data-attr="ccnum" value="8">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller8-slider" name="controller8" data-attr="cc" ccnum="8" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller9-name" data-save="1" contenteditable="true">Controller 9</div>
+        </controller-group>
+
+        <controller-input id="controller9-channel" for="controller9" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller9-cc" for="controller9" data-attr="ccnum" value="9">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller9-slider" name="controller9" data-attr="cc" ccnum="9" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller10-name" data-save="1" contenteditable="true">Controller 10</div>
+        </controller-group>
+
+        <controller-input id="controller10-channel" for="controller10" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller10-cc" for="controller10" data-attr="ccnum" value="10">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller10-slider" name="controller10" data-attr="cc" ccnum="10" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller11-name" data-save="1" contenteditable="true">Controller 11</div>
+        </controller-group>
+
+        <controller-input id="controller11-channel" for="controller11" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller11-cc" for="controller11" data-attr="ccnum" value="11">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller11-slider" name="controller11" data-attr="cc" ccnum="11" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller12-name" data-save="1" contenteditable="true">Controller 12</div>
+        </controller-group>
+
+        <controller-input id="controller12-channel" for="controller12" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller12-cc" for="controller12" data-attr="ccnum" value="12">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller12-slider" name="controller12" data-attr="cc" ccnum="12" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller13-name" data-save="1" contenteditable="true">Controller 13</div>
+        </controller-group>
+
+        <controller-input id="controller13-channel" for="controller13" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller13-cc" for="controller13" data-attr="ccnum" value="13">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller13-slider" name="controller13" data-attr="cc" ccnum="13" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller14-name" data-save="1" contenteditable="true">Controller 14</div>
+        </controller-group>
+
+        <controller-input id="controller14-channel" for="controller14" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller14-cc" for="controller14" data-attr="ccnum" value="14">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller14-slider" name="controller14" data-attr="cc" ccnum="14" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller15-name" data-save="1" contenteditable="true">Controller 15</div>
+        </controller-group>
+
+        <controller-input id="controller15-channel" for="controller15" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller15-cc" for="controller15" data-attr="ccnum" value="15">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller15-slider" name="controller15" data-attr="cc" ccnum="15" channel="1"></controller-slider>
+      </controller-container>
+    <controller-container>
+        <controller-group>
+          <div id="controller16-name" data-save="1" contenteditable="true">Controller 16</div>
+        </controller-group>
+
+        <controller-input id="controller16-channel" for="controller16" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller16-cc" for="controller16" data-attr="ccnum" value="16">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller16-slider" name="controller16" data-attr="cc" ccnum="16" channel="1"></controller-slider>
+      </controller-container>
     
   </div>
 

@@ -13,24 +13,30 @@
   </head>
 
   <body>
-    <header>
+    <header class="container">
       
-      <div class="header__item">
-        <span class="material-icons">settings_input_svideo</span>
-        <select id="midi-output" class="midi-select"></select>
-      </div>
-      <div class="header__item">
-        <span class="material-icons">piano</span>
+
+      <controller-group icon="icons:arrow-upward">
+        <select id="midi-output"></select>
+      </controller-group>
+
+      <controller-group icon="image:music-note">
+        
         <select id="control-template" onchange="window.location.assign(`${this.value}`)">
           <option value="../">General</option>
           <option value="../no-coast/">0-Coast</option>
           <option value="../eyesy/"selected>Eyesy</option>
+          <option value="../opz/">OP-Z</option>
         </select>
-      </div>
-      <div class="header__group header__group--right">
-        <button id="save-button" class="button"><span class="material-icons">tune</span><span class="button__desc"> Save</span></button>
-        <button id="clear-button" class="button"><span class="material-icons">delete</span><span class="button__desc"> Clear</span></button>
-      </div>
+      </controller-group>
+
+      <controller-group class="align--right">
+        <div>
+          
+          <controller-button id="save-button" icon="image:tune" title="Save"></controller-button>
+          <controller-button id="clear-button" icon="icons:delete" title="Clear" onclick="localStorage.clear();"></controller-button>
+        </div>
+      </controller-group>
       
     </header>
 
@@ -38,259 +44,291 @@
   <div id="container" class="container">
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-mode-params-1-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Mode Params</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-mode-params-1-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-mode-params-1-val1" class="controller__input controller__value" data-save="1" value="21" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-mode-params-1" name="eyesy-mode-params-1" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-mode-params-1-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-mode-params-1-name" data-save="innerText" contenteditable="true">Mode Params</div>
+          </controller-group>
+
+          <controller-input id="eyesy-mode-params-1-channel" for="eyesy-mode-params-1" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-mode-params-1-cc" for="eyesy-mode-params-1" data-attr="ccnum" value="21">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-mode-params-1-slider" name="eyesy-mode-params-1" data-attr="cc" ccnum="21" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-mode-params-2-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Mode Params</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-mode-params-2-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-mode-params-2-val1" class="controller__input controller__value" data-save="1" value="22" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-mode-params-2" name="eyesy-mode-params-2" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-mode-params-2-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-mode-params-2-name" data-save="innerText" contenteditable="true">Mode Params</div>
+          </controller-group>
+
+          <controller-input id="eyesy-mode-params-2-channel" for="eyesy-mode-params-2" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-mode-params-2-cc" for="eyesy-mode-params-2" data-attr="ccnum" value="22">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-mode-params-2-slider" name="eyesy-mode-params-2" data-attr="cc" ccnum="22" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-mode-params-3-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Mode Params</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-mode-params-3-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-mode-params-3-val1" class="controller__input controller__value" data-save="1" value="23" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-mode-params-3" name="eyesy-mode-params-3" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-mode-params-3-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-mode-params-3-name" data-save="innerText" contenteditable="true">Mode Params</div>
+          </controller-group>
+
+          <controller-input id="eyesy-mode-params-3-channel" for="eyesy-mode-params-3" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-mode-params-3-cc" for="eyesy-mode-params-3" data-attr="ccnum" value="23">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-mode-params-3-slider" name="eyesy-mode-params-3" data-attr="cc" ccnum="23" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-mode-params-4-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Mode Params</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-mode-params-4-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-mode-params-4-val1" class="controller__input controller__value" data-save="1" value="24" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-mode-params-4" name="eyesy-mode-params-4" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-mode-params-4-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-mode-params-4-name" data-save="innerText" contenteditable="true">Mode Params</div>
+          </controller-group>
+
+          <controller-input id="eyesy-mode-params-4-channel" for="eyesy-mode-params-4" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-mode-params-4-cc" for="eyesy-mode-params-4" data-attr="ccnum" value="24">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-mode-params-4-slider" name="eyesy-mode-params-4" data-attr="cc" ccnum="24" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-background-color-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Background Color</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-background-color-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-background-color-val1" class="controller__input controller__value" data-save="1" value="26" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-background-color" name="eyesy-background-color" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-background-color-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-background-color-name" data-save="innerText" contenteditable="true">Background Color</div>
+          </controller-group>
+
+          <controller-input id="eyesy-background-color-channel" for="eyesy-background-color" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-background-color-cc" for="eyesy-background-color" data-attr="ccnum" value="26">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-background-color-slider" name="eyesy-background-color" data-attr="cc" ccnum="26" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-background-color-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Background Color</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-background-color-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-background-color-val1" class="controller__input controller__value" data-save="1" value="26" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-background-color" name="eyesy-background-color" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-background-color-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-background-color-name" data-save="innerText" contenteditable="true">Background Color</div>
+          </controller-group>
+
+          <controller-input id="eyesy-background-color-channel" for="eyesy-background-color" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-background-color-cc" for="eyesy-background-color" data-attr="ccnum" value="26">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-background-color-slider" name="eyesy-background-color" data-attr="cc" ccnum="26" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-scene-selection-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Scene Selection</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-scene-selection-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-scene-selection-val1" class="controller__input controller__value" data-save="1" value="26" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-scene-selection" name="eyesy-scene-selection" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-scene-selection-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-scene-selection-name" data-save="innerText" contenteditable="true">Scene Selection</div>
+          </controller-group>
+
+          <controller-input id="eyesy-scene-selection-channel" for="eyesy-scene-selection" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-scene-selection-cc" for="eyesy-scene-selection" data-attr="ccnum" value="26">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-scene-selection-slider" name="eyesy-scene-selection" data-attr="cc" ccnum="26" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-save-delete-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Save or Delete</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-save-delete-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-save-delete-val1" class="controller__input controller__value" data-save="1" value="27" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-save-delete" name="eyesy-save-delete" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-save-delete-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-save-delete-name" data-save="innerText" contenteditable="true">Save or Delete</div>
+          </controller-group>
+
+          <controller-input id="eyesy-save-delete-channel" for="eyesy-save-delete" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-save-delete-cc" for="eyesy-save-delete" data-attr="ccnum" value="27">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-save-delete-slider" name="eyesy-save-delete" data-attr="cc" ccnum="27" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-auto-clear-toggle-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Auto Clear Toggle</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-auto-clear-toggle-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-auto-clear-toggle-val1" class="controller__input controller__value" data-save="1" value="28" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-auto-clear-toggle" name="eyesy-auto-clear-toggle" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-auto-clear-toggle-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-auto-clear-toggle-name" data-save="innerText" contenteditable="true">Auto Clear Toggle</div>
+          </controller-group>
+
+          <controller-input id="eyesy-auto-clear-toggle-channel" for="eyesy-auto-clear-toggle" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-auto-clear-toggle-cc" for="eyesy-auto-clear-toggle" data-attr="ccnum" value="28">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-auto-clear-toggle-slider" name="eyesy-auto-clear-toggle" data-attr="cc" ccnum="28" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-mode-selection-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Mode Selection</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-mode-selection-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-mode-selection-val1" class="controller__input controller__value" data-save="1" value="29" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-mode-selection" name="eyesy-mode-selection" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-mode-selection-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-mode-selection-name" data-save="innerText" contenteditable="true">Mode Selection</div>
+          </controller-group>
+
+          <controller-input id="eyesy-mode-selection-channel" for="eyesy-mode-selection" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-mode-selection-cc" for="eyesy-mode-selection" data-attr="ccnum" value="29">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-mode-selection-slider" name="eyesy-mode-selection" data-attr="cc" ccnum="29" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-take-screenshot-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Take Screenshot</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-take-screenshot-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-take-screenshot-val1" class="controller__input controller__value" data-save="1" value="30" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-take-screenshot" name="eyesy-take-screenshot" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-take-screenshot-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-take-screenshot-name" data-save="innerText" contenteditable="true">Take Screenshot</div>
+          </controller-group>
+
+          <controller-input id="eyesy-take-screenshot-channel" for="eyesy-take-screenshot" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-take-screenshot-cc" for="eyesy-take-screenshot" data-attr="ccnum" value="30">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-take-screenshot-slider" name="eyesy-take-screenshot" data-attr="cc" ccnum="30" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-info-display-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Info Display</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-info-display-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-info-display-val1" class="controller__input controller__value" data-save="1" value="31" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-info-display" name="eyesy-info-display" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-info-display-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-info-display-name" data-save="innerText" contenteditable="true">Info Display</div>
+          </controller-group>
+
+          <controller-input id="eyesy-info-display-channel" for="eyesy-info-display" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-info-display-cc" for="eyesy-info-display" data-attr="ccnum" value="31">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-info-display-slider" name="eyesy-info-display" data-attr="cc" ccnum="31" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-send-trigger-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Send Trigger</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-send-trigger-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-send-trigger-val1" class="controller__input controller__value" data-save="1" value="32" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-send-trigger" name="eyesy-send-trigger" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-send-trigger-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-send-trigger-name" data-save="innerText" contenteditable="true">Send Trigger</div>
+          </controller-group>
+
+          <controller-input id="eyesy-send-trigger-channel" for="eyesy-send-trigger" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-send-trigger-cc" for="eyesy-send-trigger" data-attr="ccnum" value="32">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-send-trigger-slider" name="eyesy-send-trigger" data-attr="cc" ccnum="32" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-shift-key-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Shift key</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-shift-key-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-shift-key-val1" class="controller__input controller__value" data-save="1" value="33" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-shift-key" name="eyesy-shift-key" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-shift-key-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-shift-key-name" data-save="innerText" contenteditable="true">Shift key</div>
+          </controller-group>
+
+          <controller-input id="eyesy-shift-key-channel" for="eyesy-shift-key" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-shift-key-cc" for="eyesy-shift-key" data-attr="ccnum" value="33">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-shift-key-slider" name="eyesy-shift-key" data-attr="cc" ccnum="33" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-input-gain-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Input Gain</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-input-gain-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-input-gain-val1" class="controller__input controller__value" data-save="1" value="34" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-input-gain" name="eyesy-input-gain" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-input-gain-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-input-gain-name" data-save="innerText" contenteditable="true">Input Gain</div>
+          </controller-group>
+
+          <controller-input id="eyesy-input-gain-channel" for="eyesy-input-gain" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-input-gain-cc" for="eyesy-input-gain" data-attr="ccnum" value="34">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-input-gain-slider" name="eyesy-input-gain" data-attr="cc" ccnum="34" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="eyesy-trigger-source-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Trigger Source</div>
-          </div>
-          <div class="controller__group">
-            <div id="eyesy-trigger-source-val1-label" class="controller__label">CC Number</div>
-            <input id="eyesy-trigger-source-val1" class="controller__input controller__value" data-save="1" value="35" />
-          </div>
-          <div class="controller__group">
-            <input id="eyesy-trigger-source" name="eyesy-trigger-source" class="controller" data-save="1" type="range" value="0" max="" />
-            <input id="eyesy-trigger-source-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="eyesy-trigger-source-name" data-save="innerText" contenteditable="true">Trigger Source</div>
+          </controller-group>
+
+          <controller-input id="eyesy-trigger-source-channel" for="eyesy-trigger-source" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="eyesy-trigger-source-cc" for="eyesy-trigger-source" data-attr="ccnum" value="35">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="eyesy-trigger-source-slider" name="eyesy-trigger-source" data-attr="cc" ccnum="35" channel="1" value="0" max=""></controller-slider>
+        </controller-container>
       
     
   </div>

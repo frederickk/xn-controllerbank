@@ -13,24 +13,30 @@
   </head>
 
   <body>
-    <header>
+    <header class="container">
       
-      <div class="header__item">
-        <span class="material-icons">settings_input_svideo</span>
-        <select id="midi-output" class="midi-select"></select>
-      </div>
-      <div class="header__item">
-        <span class="material-icons">piano</span>
+
+      <controller-group icon="icons:arrow-upward">
+        <select id="midi-output"></select>
+      </controller-group>
+
+      <controller-group icon="image:music-note">
+        
         <select id="control-template" onchange="window.location.assign(`${this.value}`)">
           <option value="../">General</option>
           <option value="../no-coast/"selected>0-Coast</option>
           <option value="../eyesy/">Eyesy</option>
+          <option value="../opz/">OP-Z</option>
         </select>
-      </div>
-      <div class="header__group header__group--right">
-        <button id="save-button" class="button"><span class="material-icons">tune</span><span class="button__desc"> Save</span></button>
-        <button id="clear-button" class="button"><span class="material-icons">delete</span><span class="button__desc"> Clear</span></button>
-      </div>
+      </controller-group>
+
+      <controller-group class="align--right">
+        <div>
+          
+          <controller-button id="save-button" icon="image:tune" title="Save"></controller-button>
+          <controller-button id="clear-button" icon="icons:delete" title="Clear" onclick="localStorage.clear();"></controller-button>
+        </div>
+      </controller-group>
       
     </header>
 
@@ -38,311 +44,349 @@
   <div id="container" class="container">
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-arp-on-off-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Arpeggiator</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-arp-on-off-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-arp-on-off-val1" class="controller__input controller__value" data-save="1" value="117" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-arp-on-off" name="no-coast-arp-on-off" class="controller" data-save="1" type="range" value="0" max="1" />
-            <input id="no-coast-arp-on-off-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-arp-on-off-name" data-save="innerText" contenteditable="true">Arpeggiator</div>
+          </controller-group>
+
+          <controller-input id="no-coast-arp-on-off-channel" for="no-coast-arp-on-off" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-arp-on-off-cc" for="no-coast-arp-on-off" data-attr="ccnum" value="117">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-arp-on-off-slider" name="no-coast-arp-on-off" data-attr="cc" ccnum="117" channel="1" value="0" max="1"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-arp-type-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Arpeggiator Type</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-arp-type-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-arp-type-val1" class="controller__input controller__value" data-save="1" value="119" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-arp-type" name="no-coast-arp-type" class="controller" data-save="1" type="range" value="0" max="1" />
-            <input id="no-coast-arp-type-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-arp-type-name" data-save="innerText" contenteditable="true">Arpeggiator Type</div>
+          </controller-group>
+
+          <controller-input id="no-coast-arp-type-channel" for="no-coast-arp-type" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-arp-type-cc" for="no-coast-arp-type" data-attr="ccnum" value="119">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-arp-type-slider" name="no-coast-arp-type" data-attr="cc" ccnum="119" channel="1" value="0" max="1"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-portamento-on-off-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Portamento</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-portamento-on-off-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-portamento-on-off-val1" class="controller__input controller__value" data-save="1" value="65" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-portamento-on-off" name="no-coast-portamento-on-off" class="controller" data-save="1" type="range" value="0" max="1" />
-            <input id="no-coast-portamento-on-off-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-portamento-on-off-name" data-save="innerText" contenteditable="true">Portamento</div>
+          </controller-group>
+
+          <controller-input id="no-coast-portamento-on-off-channel" for="no-coast-portamento-on-off" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-portamento-on-off-cc" for="no-coast-portamento-on-off" data-attr="ccnum" value="65">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-portamento-on-off-slider" name="no-coast-portamento-on-off" data-attr="cc" ccnum="65" channel="1" value="0" max="1"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-portamento-time-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Portamento Time</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-portamento-time-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-portamento-time-val1" class="controller__input controller__value" data-save="1" value="5" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-portamento-time" name="no-coast-portamento-time" class="controller" data-save="1" type="range" value="0" max="127" />
-            <input id="no-coast-portamento-time-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-portamento-time-name" data-save="innerText" contenteditable="true">Portamento Time</div>
+          </controller-group>
+
+          <controller-input id="no-coast-portamento-time-channel" for="no-coast-portamento-time" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-portamento-time-cc" for="no-coast-portamento-time" data-attr="ccnum" value="5">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-portamento-time-slider" name="no-coast-portamento-time" data-attr="cc" ccnum="5" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-legato-control-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Legato Control</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-legato-control-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-legato-control-val1" class="controller__input controller__value" data-save="1" value="118" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-legato-control" name="no-coast-legato-control" class="controller" data-save="1" type="range" value="0" max="1" />
-            <input id="no-coast-legato-control-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-legato-control-name" data-save="innerText" contenteditable="true">Legato Control</div>
+          </controller-group>
+
+          <controller-input id="no-coast-legato-control-channel" for="no-coast-legato-control" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-legato-control-cc" for="no-coast-legato-control" data-attr="ccnum" value="118">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-legato-control-slider" name="no-coast-legato-control" data-attr="cc" ccnum="118" channel="1" value="0" max="1"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container"></div>
-        
-    
-      
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-clock-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi Clock</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-clock-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-clock-val1" class="controller__input controller__value" data-save="1" value="114" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-clock" name="no-coast-midi-clock" class="controller" data-save="1" type="range" value="1" max="1" />
-            <input id="no-coast-midi-clock-label" class="controller__input controller__value" data-save="1" value="1" />
-          </div>
-        </div>
+        <controller-container></controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-tempo-div-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Tempo Division</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-tempo-div-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-tempo-div-val1" class="controller__input controller__value" data-save="1" value="116" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-tempo-div" name="no-coast-tempo-div" class="controller" data-save="1" type="range" value="1" max="127" />
-            <input id="no-coast-tempo-div-label" class="controller__input controller__value" data-save="1" value="1" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-clock-name" data-save="innerText" contenteditable="true">Midi Clock</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-clock-channel" for="no-coast-midi-clock" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-clock-cc" for="no-coast-midi-clock" data-attr="ccnum" value="114">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-clock-slider" name="no-coast-midi-clock" data-attr="cc" ccnum="114" channel="1" value="1" max="1"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-a-channel-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A Channel</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-a-channel-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-a-channel-val1" class="controller__input controller__value" data-save="1" value="102" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-a-channel" name="no-coast-midi-a-channel" class="controller" data-save="1" type="range" value="16" max="16" />
-            <input id="no-coast-midi-a-channel-label" class="controller__input controller__value" data-save="1" value="16" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-tempo-div-name" data-save="innerText" contenteditable="true">Tempo Division</div>
+          </controller-group>
+
+          <controller-input id="no-coast-tempo-div-channel" for="no-coast-tempo-div" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-tempo-div-cc" for="no-coast-tempo-div" data-attr="ccnum" value="116">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-tempo-div-slider" name="no-coast-tempo-div" data-attr="cc" ccnum="116" channel="1" value="1" max="127"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-b-channel-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B Channel</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-b-channel-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-b-channel-val1" class="controller__input controller__value" data-save="1" value="103" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-b-channel" name="no-coast-midi-b-channel" class="controller" data-save="1" type="range" value="16" max="16" />
-            <input id="no-coast-midi-b-channel-label" class="controller__input controller__value" data-save="1" value="16" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-a-ccnum-name" data-save="innerText" contenteditable="true">Midi A Channel</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-a-ccnum-channel" for="no-coast-midi-a-ccnum" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-a-ccnum-cc" for="no-coast-midi-a-ccnum" data-attr="ccnum" value="102">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-a-ccnum-slider" name="no-coast-midi-a-ccnum" data-attr="cc" ccnum="102" channel="1" value="16" max="16"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-a-cv-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A CV</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-a-cv-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-a-cv-val1" class="controller__input controller__value" data-save="1" value="104" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-a-cv" name="no-coast-midi-a-cv" class="controller" data-save="1" type="range" value="3" max="3" />
-            <input id="no-coast-midi-a-cv-label" class="controller__input controller__value" data-save="1" value="3" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-b-ccnum-name" data-save="innerText" contenteditable="true">Midi B Channel</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-b-ccnum-channel" for="no-coast-midi-b-ccnum" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-b-ccnum-cc" for="no-coast-midi-b-ccnum" data-attr="ccnum" value="103">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-b-ccnum-slider" name="no-coast-midi-b-ccnum" data-attr="cc" ccnum="103" channel="1" value="16" max="16"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-b-cv-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B CV</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-b-cv-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-b-cv-val1" class="controller__input controller__value" data-save="1" value="105" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-b-cv" name="no-coast-midi-b-cv" class="controller" data-save="1" type="range" value="3" max="3" />
-            <input id="no-coast-midi-b-cv-label" class="controller__input controller__value" data-save="1" value="3" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-a-cv-name" data-save="innerText" contenteditable="true">Midi A CV</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-a-cv-channel" for="no-coast-midi-a-cv" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-a-cv-cc" for="no-coast-midi-a-cv" data-attr="ccnum" value="104">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-a-cv-slider" name="no-coast-midi-a-cv" data-attr="cc" ccnum="104" channel="1" value="3" max="3"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-a-gate-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A Gate</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-a-gate-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-a-gate-val1" class="controller__input controller__value" data-save="1" value="106" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-a-gate" name="no-coast-midi-a-gate" class="controller" data-save="1" type="range" value="3" max="3" />
-            <input id="no-coast-midi-a-gate-label" class="controller__input controller__value" data-save="1" value="3" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-b-cv-name" data-save="innerText" contenteditable="true">Midi B CV</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-b-cv-channel" for="no-coast-midi-b-cv" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-b-cv-cc" for="no-coast-midi-b-cv" data-attr="ccnum" value="105">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-b-cv-slider" name="no-coast-midi-b-cv" data-attr="cc" ccnum="105" channel="1" value="3" max="3"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-b-gate-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B Gate</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-b-gate-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-b-gate-val1" class="controller__input controller__value" data-save="1" value="107" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-b-gate" name="no-coast-midi-b-gate" class="controller" data-save="1" type="range" value="3" max="3" />
-            <input id="no-coast-midi-b-gate-label" class="controller__input controller__value" data-save="1" value="3" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-a-gate-name" data-save="innerText" contenteditable="true">Midi A Gate</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-a-gate-channel" for="no-coast-midi-a-gate" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-a-gate-cc" for="no-coast-midi-a-gate" data-attr="ccnum" value="106">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-a-gate-slider" name="no-coast-midi-a-gate" data-attr="cc" ccnum="106" channel="1" value="3" max="3"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-a-pitch-bend-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A Pitch Bend Scale</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-a-pitch-bend-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-a-pitch-bend-val1" class="controller__input controller__value" data-save="1" value="108" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-a-pitch-bend" name="no-coast-midi-a-pitch-bend" class="controller" data-save="1" type="range" value="0" max="127" />
-            <input id="no-coast-midi-a-pitch-bend-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-b-gate-name" data-save="innerText" contenteditable="true">Midi B Gate</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-b-gate-channel" for="no-coast-midi-b-gate" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-b-gate-cc" for="no-coast-midi-b-gate" data-attr="ccnum" value="107">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-b-gate-slider" name="no-coast-midi-b-gate" data-attr="cc" ccnum="107" channel="1" value="3" max="3"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-b-pitch-bend-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B Pitch Bend Scale</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-b-pitch-bend-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-b-pitch-bend-val1" class="controller__input controller__value" data-save="1" value="109" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-b-pitch-bend" name="no-coast-midi-b-pitch-bend" class="controller" data-save="1" type="range" value="0" max="127" />
-            <input id="no-coast-midi-b-pitch-bend-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-a-pitch-bend-name" data-save="innerText" contenteditable="true">Midi A Pitch Bend Scale</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-a-pitch-bend-channel" for="no-coast-midi-a-pitch-bend" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-a-pitch-bend-cc" for="no-coast-midi-a-pitch-bend" data-attr="ccnum" value="108">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-a-pitch-bend-slider" name="no-coast-midi-a-pitch-bend" data-attr="cc" ccnum="108" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-a-after-scale-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A After Scale</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-a-after-scale-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-a-after-scale-val1" class="controller__input controller__value" data-save="1" value="110" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-a-after-scale" name="no-coast-midi-a-after-scale" class="controller" data-save="1" type="range" value="0" max="127" />
-            <input id="no-coast-midi-a-after-scale-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-b-pitch-bend-name" data-save="innerText" contenteditable="true">Midi B Pitch Bend Scale</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-b-pitch-bend-channel" for="no-coast-midi-b-pitch-bend" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-b-pitch-bend-cc" for="no-coast-midi-b-pitch-bend" data-attr="ccnum" value="109">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-b-pitch-bend-slider" name="no-coast-midi-b-pitch-bend" data-attr="cc" ccnum="109" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-b-after-scale-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B After Scale</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-b-after-scale-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-b-after-scale-val1" class="controller__input controller__value" data-save="1" value="111" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-b-after-scale" name="no-coast-midi-b-after-scale" class="controller" data-save="1" type="range" value="0" max="127" />
-            <input id="no-coast-midi-b-after-scale-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-a-after-scale-name" data-save="innerText" contenteditable="true">Midi A After Scale</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-a-after-scale-channel" for="no-coast-midi-a-after-scale" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-a-after-scale-cc" for="no-coast-midi-a-after-scale" data-attr="ccnum" value="110">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-a-after-scale-slider" name="no-coast-midi-a-after-scale" data-attr="cc" ccnum="110" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-a-velocity-scale-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi A Velocity Scale</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-a-velocity-scale-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-a-velocity-scale-val1" class="controller__input controller__value" data-save="1" value="112" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-a-velocity-scale" name="no-coast-midi-a-velocity-scale" class="controller" data-save="1" type="range" value="0" max="127" />
-            <input id="no-coast-midi-a-velocity-scale-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-b-after-scale-name" data-save="innerText" contenteditable="true">Midi B After Scale</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-b-after-scale-channel" for="no-coast-midi-b-after-scale" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-b-after-scale-cc" for="no-coast-midi-b-after-scale" data-attr="ccnum" value="111">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-b-after-scale-slider" name="no-coast-midi-b-after-scale" data-attr="cc" ccnum="111" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
       
     
       
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="no-coast-midi-b-velocity-scale-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Midi B Velocity Scale</div>
-          </div>
-          <div class="controller__group">
-            <div id="no-coast-midi-b-velocity-scale-val1-label" class="controller__label">CC Number</div>
-            <input id="no-coast-midi-b-velocity-scale-val1" class="controller__input controller__value" data-save="1" value="113" />
-          </div>
-          <div class="controller__group">
-            <input id="no-coast-midi-b-velocity-scale" name="no-coast-midi-b-velocity-scale" class="controller" data-save="1" type="range" value="0" max="127" />
-            <input id="no-coast-midi-b-velocity-scale-label" class="controller__input controller__value" data-save="1" value="0" />
-          </div>
-        </div>
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-a-velocity-scale-name" data-save="innerText" contenteditable="true">Midi A Velocity Scale</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-a-velocity-scale-channel" for="no-coast-midi-a-velocity-scale" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-a-velocity-scale-cc" for="no-coast-midi-a-velocity-scale" data-attr="ccnum" value="112">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-a-velocity-scale-slider" name="no-coast-midi-a-velocity-scale" data-attr="cc" ccnum="112" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="no-coast-midi-b-velocity-scale-name" data-save="innerText" contenteditable="true">Midi B Velocity Scale</div>
+          </controller-group>
+
+          <controller-input id="no-coast-midi-b-velocity-scale-channel" for="no-coast-midi-b-velocity-scale" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="no-coast-midi-b-velocity-scale-cc" for="no-coast-midi-b-velocity-scale" data-attr="ccnum" value="113">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="no-coast-midi-b-velocity-scale-slider" name="no-coast-midi-b-velocity-scale" data-attr="cc" ccnum="113" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
       
     
   </div>

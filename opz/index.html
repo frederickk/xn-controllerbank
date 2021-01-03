@@ -1,0 +1,725 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="apple-touch-icon" href="../images/icon-192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="../manifest.json" />
+    <title>Webmidi Controller</title>
+    <link rel="stylesheet" href="../index.css" />
+  </head>
+
+  <body>
+    <header class="container">
+      
+
+      <controller-group icon="icons:arrow-upward">
+        <select id="midi-output"></select>
+      </controller-group>
+
+      <controller-group icon="image:music-note">
+        
+        <select id="control-template" onchange="window.location.assign(`${this.value}`)">
+          <option value="../">General</option>
+          <option value="../no-coast/">0-Coast</option>
+          <option value="../eyesy/">Eyesy</option>
+          <option value="../opz/"selected>OP-Z</option>
+        </select>
+      </controller-group>
+
+      <controller-group class="align--right">
+        <div>
+          
+          <controller-button id="save-button" icon="image:tune" title="Save"></controller-button>
+          <controller-button id="clear-button" icon="icons:delete" title="Clear" onclick="localStorage.clear();"></controller-button>
+        </div>
+      </controller-group>
+      
+    </header>
+
+    
+  <div id="container" class="container">
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="parameter-1-name" data-save="innerText" contenteditable="true">Parameter 1</div>
+          </controller-group>
+
+          <controller-input id="parameter-1-channel" for="parameter-1" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="parameter-1-cc" for="parameter-1" data-attr="ccnum" value="1">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="parameter-1-slider" name="parameter-1" data-attr="cc" ccnum="1" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="parameter-2-name" data-save="innerText" contenteditable="true">Parameter 1</div>
+          </controller-group>
+
+          <controller-input id="parameter-2-channel" for="parameter-2" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="parameter-2-cc" for="parameter-2" data-attr="ccnum" value="2">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="parameter-2-slider" name="parameter-2" data-attr="cc" ccnum="2" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="filter-cutoff-name" data-save="innerText" contenteditable="true">Filter cutoff</div>
+          </controller-group>
+
+          <controller-input id="filter-cutoff-channel" for="filter-cutoff" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="filter-cutoff-cc" for="filter-cutoff" data-attr="ccnum" value="3">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="filter-cutoff-slider" name="filter-cutoff" data-attr="cc" ccnum="3" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="filter-resonance-name" data-save="innerText" contenteditable="true">Filter resonance</div>
+          </controller-group>
+
+          <controller-input id="filter-resonance-channel" for="filter-resonance" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="filter-resonance-cc" for="filter-resonance" data-attr="ccnum" value="4">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="filter-resonance-slider" name="filter-resonance" data-attr="cc" ccnum="4" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="envelope-attack-name" data-save="innerText" contenteditable="true">Envelope attack</div>
+          </controller-group>
+
+          <controller-input id="envelope-attack-channel" for="envelope-attack" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="envelope-attack-cc" for="envelope-attack" data-attr="ccnum" value="5">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="envelope-attack-slider" name="envelope-attack" data-attr="cc" ccnum="5" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="envelope-decay-name" data-save="innerText" contenteditable="true">Envelope decay</div>
+          </controller-group>
+
+          <controller-input id="envelope-decay-channel" for="envelope-decay" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="envelope-decay-cc" for="envelope-decay" data-attr="ccnum" value="6">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="envelope-decay-slider" name="envelope-decay" data-attr="cc" ccnum="6" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="envelope-sustain-name" data-save="innerText" contenteditable="true">Envelope sustain</div>
+          </controller-group>
+
+          <controller-input id="envelope-sustain-channel" for="envelope-sustain" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="envelope-sustain-cc" for="envelope-sustain" data-attr="ccnum" value="7">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="envelope-sustain-slider" name="envelope-sustain" data-attr="cc" ccnum="7" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="envelope-release-name" data-save="innerText" contenteditable="true">Envelope release</div>
+          </controller-group>
+
+          <controller-input id="envelope-release-channel" for="envelope-release" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="envelope-release-cc" for="envelope-release" data-attr="ccnum" value="8">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="envelope-release-slider" name="envelope-release" data-attr="cc" ccnum="8" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="lfo-depth-name" data-save="innerText" contenteditable="true">LFO depth</div>
+          </controller-group>
+
+          <controller-input id="lfo-depth-channel" for="lfo-depth" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="lfo-depth-cc" for="lfo-depth" data-attr="ccnum" value="9">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="lfo-depth-slider" name="lfo-depth" data-attr="cc" ccnum="9" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="lfo-speed-name" data-save="innerText" contenteditable="true">LFO speed</div>
+          </controller-group>
+
+          <controller-input id="lfo-speed-channel" for="lfo-speed" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="lfo-speed-cc" for="lfo-speed" data-attr="ccnum" value="10">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="lfo-speed-slider" name="lfo-speed" data-attr="cc" ccnum="10" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="lfo-target-name" data-save="innerText" contenteditable="true">LFO target</div>
+          </controller-group>
+
+          <controller-input id="lfo-target-channel" for="lfo-target" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="lfo-target-cc" for="lfo-target" data-attr="ccnum" value="11">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="lfo-target-slider" name="lfo-target" data-attr="cc" ccnum="11" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="lfo-shape-name" data-save="innerText" contenteditable="true">LFO shape</div>
+          </controller-group>
+
+          <controller-input id="lfo-shape-channel" for="lfo-shape" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="lfo-shape-cc" for="lfo-shape" data-attr="ccnum" value="12">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="lfo-shape-slider" name="lfo-shape" data-attr="cc" ccnum="12" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="fx-1-send-name" data-save="innerText" contenteditable="true">FX 1 send</div>
+          </controller-group>
+
+          <controller-input id="fx-1-send-channel" for="fx-1-send" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="fx-1-send-cc" for="fx-1-send" data-attr="ccnum" value="13">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="fx-1-send-slider" name="fx-1-send" data-attr="cc" ccnum="13" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="fx-2-send-name" data-save="innerText" contenteditable="true">FX 2 send</div>
+          </controller-group>
+
+          <controller-input id="fx-2-send-channel" for="fx-2-send" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="fx-2-send-cc" for="fx-2-send" data-attr="ccnum" value="14">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="fx-2-send-slider" name="fx-2-send" data-attr="cc" ccnum="14" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="pan-name" data-save="innerText" contenteditable="true">Pan</div>
+          </controller-group>
+
+          <controller-input id="pan-channel" for="pan" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="pan-cc" for="pan" data-attr="ccnum" value="15">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="pan-slider" name="pan" data-attr="cc" ccnum="15" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="volume-name" data-save="innerText" contenteditable="true">Volume</div>
+          </controller-group>
+
+          <controller-input id="volume-channel" for="volume" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="volume-cc" for="volume" data-attr="ccnum" value="16">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="volume-slider" name="volume" data-attr="cc" ccnum="16" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="portamento-name" data-save="innerText" contenteditable="true">Portamento</div>
+          </controller-group>
+
+          <controller-input id="portamento-channel" for="portamento" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="portamento-cc" for="portamento" data-attr="ccnum" value="17">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="portamento-slider" name="portamento" data-attr="cc" ccnum="17" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="note-style-name" data-save="innerText" contenteditable="true">Note style</div>
+          </controller-group>
+
+          <controller-input id="note-style-channel" for="note-style" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="note-style-cc" for="note-style" data-attr="ccnum" value="18">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="note-style-slider" name="note-style" data-attr="cc" ccnum="18" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="track-gain-name" data-save="innerText" contenteditable="true">Track gain</div>
+          </controller-group>
+
+          <controller-input id="track-gain-channel" for="track-gain" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="track-gain-cc" for="track-gain" data-attr="ccnum" value="50">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="track-gain-slider" name="track-gain" data-attr="cc" ccnum="50" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="track-gain-rel-name" data-save="innerText" contenteditable="true">Track gain (relative)</div>
+          </controller-group>
+
+          <controller-input id="track-gain-rel-channel" for="track-gain-rel" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="track-gain-rel-cc" for="track-gain-rel" data-attr="ccnum" value="51">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="track-gain-rel-slider" name="track-gain-rel" data-attr="cc" ccnum="51" channel="1" value="1" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="reset-track-gains-name" data-save="innerText" contenteditable="true">Reset track gains</div>
+          </controller-group>
+
+          <controller-input id="reset-track-gains-channel" for="reset-track-gains" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="reset-track-gains-cc" for="reset-track-gains" data-attr="ccnum" value="52">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="reset-track-gains-slider" name="reset-track-gains" data-attr="cc" ccnum="52" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="mute-name" data-save="innerText" contenteditable="true">Mute</div>
+          </controller-group>
+
+          <controller-input id="mute-channel" for="mute" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="mute-cc" for="mute" data-attr="ccnum" value="53">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="mute-slider" name="mute" data-attr="cc" ccnum="53" channel="1" value="0" max="1"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="audio-mute-name" data-save="innerText" contenteditable="true">Audio mute</div>
+          </controller-group>
+
+          <controller-input id="audio-mute-channel" for="audio-mute" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="audio-mute-cc" for="audio-mute" data-attr="ccnum" value="54">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="audio-mute-slider" name="audio-mute" data-attr="cc" ccnum="54" channel="1" value="0" max="1"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="mute-group-name" data-save="innerText" contenteditable="true">Mute group</div>
+          </controller-group>
+
+          <controller-input id="mute-group-channel" for="mute-group" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="mute-group-cc" for="mute-group" data-attr="ccnum" value="55">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="mute-group-slider" name="mute-group" data-attr="cc" ccnum="55" channel="1" value="0" max="9"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="tempo-name" data-save="innerText" contenteditable="true">Tempo</div>
+          </controller-group>
+
+          <controller-input id="tempo-channel" for="tempo" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="tempo-cc" for="tempo" data-attr="ccnum" value="56">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="tempo-slider" name="tempo" data-attr="cc" ccnum="56" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="swing-name" data-save="innerText" contenteditable="true">Swing</div>
+          </controller-group>
+
+          <controller-input id="swing-channel" for="swing" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="swing-cc" for="swing" data-attr="ccnum" value="57">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="swing-slider" name="swing" data-attr="cc" ccnum="57" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="select-pattern-name" data-save="innerText" contenteditable="true">Select pattern</div>
+          </controller-group>
+
+          <controller-input id="select-pattern-channel" for="select-pattern" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="select-pattern-cc" for="select-pattern" data-attr="ccnum" value="103">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="select-pattern-slider" name="select-pattern" data-attr="cc" ccnum="103" channel="1" value="0" max="15"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="next-pattern-name" data-save="innerText" contenteditable="true">Next pattern</div>
+          </controller-group>
+
+          <controller-input id="next-pattern-channel" for="next-pattern" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="next-pattern-cc" for="next-pattern" data-attr="ccnum" value="103">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="next-pattern-slider" name="next-pattern" data-attr="cc" ccnum="103" channel="1" value="16" max="16"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="previous-pattern-name" data-save="innerText" contenteditable="true">Previous pattern</div>
+          </controller-group>
+
+          <controller-input id="previous-pattern-channel" for="previous-pattern" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="previous-pattern-cc" for="previous-pattern" data-attr="ccnum" value="103">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="previous-pattern-slider" name="previous-pattern" data-attr="cc" ccnum="103" channel="1" value="17" max="17"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="track-step-count-name" data-save="innerText" contenteditable="true">Track step count</div>
+          </controller-group>
+
+          <controller-input id="track-step-count-channel" for="track-step-count" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="track-step-count-cc" for="track-step-count" data-attr="ccnum" value="60">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="track-step-count-slider" name="track-step-count" data-attr="cc" ccnum="60" channel="1" value="1" max="16"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="track-step-length-name" data-save="innerText" contenteditable="true">Track step length</div>
+          </controller-group>
+
+          <controller-input id="track-step-length-channel" for="track-step-length" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="track-step-length-cc" for="track-step-length" data-attr="ccnum" value="61">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="track-step-length-slider" name="track-step-length" data-attr="cc" ccnum="61" channel="1" value="1" max="16"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="quantize-name" data-save="innerText" contenteditable="true">Quantize</div>
+          </controller-group>
+
+          <controller-input id="quantize-channel" for="quantize" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="quantize-cc" for="quantize" data-attr="ccnum" value="62">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="quantize-slider" name="quantize" data-attr="cc" ccnum="62" channel="1" value="0" max="127"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="note-length-name" data-save="innerText" contenteditable="true">Note length</div>
+          </controller-group>
+
+          <controller-input id="note-length-channel" for="note-length" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="note-length-cc" for="note-length" data-attr="ccnum" value="63">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="note-length-slider" name="note-length" data-attr="cc" ccnum="63" channel="1" value="0" max="12"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container></controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="active-track-name" data-save="innerText" contenteditable="true">Active track</div>
+          </controller-group>
+
+          <controller-input id="active-track-channel" for="active-track" data-attr="channel" value="0" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="active-track-cc" for="active-track" data-attr="ccnum" value="102">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="active-track-slider" name="active-track" data-attr="cc" ccnum="102" channel="0" value="0" max="15"></controller-slider>
+        </controller-container>
+      
+    
+      
+        <controller-container>
+          <controller-group>
+            <div id="parameter-page-name" data-save="innerText" contenteditable="true">Parameter page</div>
+          </controller-group>
+
+          <controller-input id="parameter-page-channel" for="parameter-page" data-attr="channel" value="1" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="parameter-page-cc" for="parameter-page" data-attr="ccnum" value="102">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="parameter-page-slider" name="parameter-page" data-attr="cc" ccnum="102" channel="1" value="0" max="3"></controller-slider>
+        </controller-container>
+      
+    
+  </div>
+
+
+    <script src="../index.js"></script>
+  </body>
+</html>
