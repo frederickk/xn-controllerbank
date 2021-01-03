@@ -1,0 +1,31 @@
+@import '../sass/mixins';
+@import './_input';
+@import './label';
+
+:host {
+  button {
+    @include input-base;
+
+    background-color: var(--background, #000);
+    cursor: pointer;
+    transition: background-color var(--transition-ms, 100ms) ease-in-out, color var(--transition-ms, 100ms) ease-in-out;
+
+    &:hover {
+      background-color: var(--light-background, #222);
+    }
+
+    iron-icon {
+      @include iron-icon;
+    }
+
+    .desc {
+      @include mq-min(768px) {
+        display: inline-flex;
+      }
+
+      display: none;
+      margin: 0 1ch;
+      vertical-align: middle;
+    }
+  }
+}

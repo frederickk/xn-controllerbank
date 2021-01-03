@@ -13,29 +13,35 @@
   </head>
 
   <body>
-    <header>
+    <header class="container">
       {#
-      <div>
-        <label id="midi-input-label" class="controller__label" for="midi-input">Input device</label>
-        <select id="midi-input" class="midi-select"></select>
-      </div>
+      <controller-group icon="icons:arrow-downward">
+        <select id="midi-input" title="Select input device"></select>
+      </controller-group>
       #}
-      <div class="header__item">
-        <span class="material-icons">settings_input_svideo</span>
-        <select id="midi-output" class="midi-select"></select>
-      </div>
-      <div class="header__item">
-        <span class="material-icons">piano</span>
-        <select id="control-template" onchange="window.location.assign(`${this.value}`)">
+
+      <controller-group icon="icons:arrow-upward">
+        <select id="midi-output" title="Select output device"></select>
+        <controller-button id="connect-bluetooth" icon="device:bluetooth" title="Connect to Bluetooth device. Note: Not all devices supported" label=""></controller-button>
+      </controller-group>
+
+      <controller-group icon="image:music-note">
+        {# TODO(frederickk): Make to loading/saving of parameter template possible. #}
+        <select id="control-template" title="Select device template" onchange="window.location.assign(`${this.value}`)">
           <option value="{{ relative_dir }}" {%- if request.url == '' %}selected{% endif -%}>General</option>
           <option value="{{ relative_dir }}no-coast/" {%- if 'no-coast' in request.url %}selected{% endif -%}>0-Coast</option>
           <option value="{{ relative_dir }}eyesy/" {%- if 'eyesy' in request.url %}selected{% endif -%}>Eyesy</option>
+          <option value="{{ relative_dir }}opz/" {%- if 'opz' in request.url %}selected{% endif -%}>OP-Z</option>
         </select>
-      </div>
-      <div class="header__group header__group--right">
-        <button id="save-button" class="button"><span class="material-icons">tune</span><span class="button__desc"> Save</span></button>
-        <button id="clear-button" class="button"><span class="material-icons">delete</span><span class="button__desc"> Clear</span></button>
-      </div>
+      </controller-group>
+
+      <controller-group class="align--right">
+        <div>
+          {# TODO(frederickk): Add "bang all" to trigger all params simultaneously. #}
+          <controller-button id="save-button" icon="image:tune" title="Save all values" label="Save"></controller-button>
+          <controller-button id="clear-button" icon="icons:delete" title="Clear all values" label="Clear" onclick="localStorage.clear();"></controller-button>
+        </div>
+      </controller-group>
       {% block header %}{% endblock %}
     </header>
 

@@ -3,19 +3,21 @@
 {% block body %}
   <div id="container" class="container">
     {% for i in range(0, 16) -%}
-      <div class="controller__container">
-        <div class="controller__group">
-          <div id="controller{{i + 1}}-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">Controller {{i + 1}}</div>
-        </div>
-        <div class="controller__group">
-          <div id="controller{{i + 1}}-val1-label" class="controller__label">CC Number</div>
-          <input id="controller{{i + 1}}-val1" class="controller__input controller__value" data-save="1" value="{{i + 1}}" />
-        </div>
-        <div class="controller__group">
-          <input id="controller{{i + 1}}" name="controller{{i + 1}}" class="controller" data-save="1" type="range" value="0" max="127" />
-          <input id="controller{{i + 1}}-label" class="controller__input controller__value" data-save="1" value="0" />
-        </div>
-      </div>
+      <controller-container>
+        <controller-header id="controller{{i + 1}}">
+          <div id="controller{{i + 1}}-name" data-save="1" contenteditable="true">Controller {{i + 1}}</div>
+        </controller-header>
+
+        <controller-input id="controller{{i + 1}}-channel" for="controller{{i + 1}}" data-attr="channel" value="1" min="1" max="16">
+          Channel
+        </controller-input>
+
+        <controller-input id="controller{{i + 1}}-cc" for="controller{{i + 1}}" data-attr="ccnum" value="{{i + 1}}">
+          CC Number
+        </controller-input>
+
+        <controller-slider id="controller{{i + 1}}-slider" name="controller{{i + 1}}" data-attr="cc" ccnum="{{i + 1}}" channel="1"></controller-slider>
+      </controller-container>
     {% endfor %}
   </div>
 {% endblock %}

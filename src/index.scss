@@ -1,28 +1,24 @@
-// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Material+Icons&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Material+Icons&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Material+Icons&display=swap');
 @import 'sass/mixins';
-@import 'sass/controller';
-@import 'sass/header';
-
 
 :root {
   --background: #000;
   --light-background: #222;
   --light-background--hover: #333;
   --border-radius: 4px;
-  --type-color: darkgray;
-  --type-color--hover: white;
-  --error-color: red;
+  --type-color: #aaa;
+  --type-color--hover: #fff;
+  --error-color: #f00;
+  --transition-ms: 100ms;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--type-color);
+  background-color: var(--background, #000);
+  color: var(--type-color, #aaa);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  font-family: 'DM Mono'; //'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
   height: 100vh;
   margin: 0;
@@ -30,14 +26,37 @@ body {
   width: 100%;
 }
 
-.material-icons {
-  font-size: 16px;
-  line-height: 0;
-  vertical-align: middle;
+header {
+  @include mq-min(768px) {
+    max-height: 70px;
+  }
+
+  align-items: center;
+  background: var(--background, #000);
+  justify-content: space-between;
+  margin-top: 0 !important;
+  max-height: 100px;
+  overflow: hidden;
+  position: fixed;
+  z-index: 1000;
+
+  & .align--right {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  controller-group {
+     @include mq-min(768px) {
+      flex: 1;
+    }
+
+    flex: 2;
+    margin: 0 1vw;
+  }
 }
 
 .container {
-  @include mq-min(600px) {
+  @include mq-min(768px) {
     margin-top: 100px;
   }
 
@@ -47,98 +66,6 @@ body {
   justify-content: flex-start;
   margin-top: 70px;
   overflow-x: hidden;
-  padding: 1vw;
+  padding: 0 1vw 1vw;
   width: 100%;
-}
-
-select,
-.button,
-.midi-select {
-  @include mq-min(600px) {
-    padding: 1em;
-    max-width: none;
-  }
-
-  background-color: var(--light-background);
-  color: var(--type-color);
-  cursor: pointer;
-  border: 0;
-  border-radius: var(--border-radius);
-  font-family: inherit;
-  font-size: inherit;
-  flex: 2;
-  margin: 0;
-  max-width: 20vw;
-  overflow: hidden;
-  padding: .5em;
-  text-overflow: ellipsis;
-  transition: color 100ms ease-in-out;
-
-  &:hover {
-    color: var(--type-color--hover);
-  }
-
-  &:empty {
-    background-color: var(--error-color);
-    color: var(--type-color--hover);
-  }
-
-  &__desc {
-    @include mq-min(600px) {
-      display: inline-flex;
-    }
-
-    display: none;
-    margin: 0 1ch;
-    vertical-align: middle;
-  }
-}
-
-.button {
-  background-color: var(--background);
-  transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
-
-  &:hover {
-    background-color: var(--light-background);
-  }
-}
-
-input[type=range] {
-  -webkit-appearance: none;
-  background: transparent;
-  width: 100%;
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background-color: var(--type-color);
-    border-radius: 50%;
-    cursor: pointer;
-    height: 2em;
-    transition: background-color 100ms ease-in-out;
-    width: 2em;
-
-    &:hover {
-      background-color: var(--type-color--hover);
-    }
-  }
-
-  &::-webkit-slider-runnable-track {
-    background: var(--light-background);
-    border-radius: 1em;
-    cursor: pointer;
-    height: 2em;
-    transition: background-color 100ms ease-in-out;
-
-    &:hover {
-      background-color: var(--light-background--hover);
-    }
-  }
-
-  &::-ms-track {
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-    cursor: pointer;
-    width: 100%;
-  }
 }

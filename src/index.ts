@@ -1,51 +1,55 @@
-import {Controller} from './ts/controller';
+import {BluetoothHelper} from './ts/bluetoothHelper';
 import {MidiHelper} from './ts/midiHelper';
-import {Select} from './ts/select';
+import {StorageHelper} from './ts/storageHelper';
+import './components/controller-button';
+import './components/controller-container';
+import './components/controller-group';
+import './components/controller-header';
+import './components/controller-input';
+import './components/controller-slider';
 
 export class WebmidiController {
   private saveButton_: HTMLInputElement | null = null;
-  private clearButton_: HTMLInputElement | null = null;
 
   constructor() {
+    // Instantiate webmidi in global Window.
+    window.Midi = new MidiHelper();
+    window.Midi.connect();
+
+    // Instantiate web Bluetooth in global Window.
+    window.Bluetooth = new BluetoothHelper({
+      // acceptAllDevices: true, // Note: Debug only.
+      filters: [{
+        services: [BluetoothHelper.MIDI_UUID],
+      }],
+    });
+    window.Bluetooth.callback = (data: any) => {
+      console.log(data);
+    }
+
+    const connectBluetooth = document.querySelector('#connect-bluetooth');
+    connectBluetooth?.addEventListener(('click'), () => {
+      window.Bluetooth.connect();
+    });
+
     this.saveButton_ = document.querySelector('#save-button');
-    this.clearButton_ = document.querySelector('#clear-button');
-
-    // Instantiate webmidi.
-    const mh = new MidiHelper();
-    mh.connect();
-
-    // Instantiate selects.
-    Array.from(document.querySelectorAll('select.midi-select')).forEach((select) => {
-      new Select(`#${select.id}`);
-    });
-
-    // Instantiate sliders.
-    Array.from(document.querySelectorAll('input.controller')).forEach((controller) => {
-      new Controller(`#${controller.id}`, mh);
-    });
-
     this.attach_();
+
+    // TODO(frederickk): Save and recall controller amount and order.
   }
 
   saveState() {
+    const saves = document.querySelectorAll('*[data-save]');
+    saves.forEach((item: any) => {
+      console.log(item.id, `'${item.dataset.save}'`, item[item.dataset.save]);
+      StorageHelper.setState(item, item.dataset.save);
+    });
+
     console.log('Saving state in localStorage');
-    // const saves = document.querySelectorAll('*[data-save]');
-    // saves.forEach((item: any) => {
-    //   this.localStorageSaveHandler_(item);
-    // });
   }
 
   private attach_() {
-    if (this.clearButton_) {
-      this.clearButton_.addEventListener('click', () => {
-        console.log('Clearing saved localStorage states');
-        localStorage.clear();
-      });
-    }
-
-    if (this.saveButton_) {
-      this.saveButton_.addEventListener('click', this.saveState.bind(this));
-    }
+    this.saveButton_?.addEventListener('click', this.saveState.bind(this));
   }
 }
 

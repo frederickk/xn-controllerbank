@@ -1,31 +1,31 @@
 [{
   "id": "no-coast-arp-on-off",
   "label": "Arpeggiator",
-  "channel": 117,
+  "ccnum": 117,
   "default": 0,
   "max": 1
 }, {
   "id": "no-coast-arp-type",
   "label": "Arpeggiator Type",
-  "channel": 119,
+  "ccnum": 119,
   "default": 0,
   "max": 1
 }, {
   "id": "no-coast-portamento-on-off",
   "label": "Portamento",
-  "channel": 65,
+  "ccnum": 65,
   "default": 0,
   "max": 1
 }, {
   "id": "no-coast-portamento-time",
   "label": "Portamento Time",
-  "channel": 5,
+  "ccnum": 5,
   "default": 0,
   "max": 127
 }, {
   "id": "no-coast-legato-control",
   "label": "Legato Control",
-  "channel": 118,
+  "ccnum": 118,
   "default": 0,
   "max": 1
 }, {
@@ -33,85 +33,85 @@
 }, {
   "id": "no-coast-midi-clock",
   "label": "Midi Clock",
-  "channel": 114,
+  "ccnum": 114,
   "default": 1,
   "max": 1
 }, {
   "id": "no-coast-tempo-div",
   "label": "Tempo Division",
-  "channel": 116,
+  "ccnum": 116,
   "default": 1,
   "max": 127
 }, {
-  "id": "no-coast-midi-a-channel",
+  "id": "no-coast-midi-a-ccnum",
   "label": "Midi A Channel",
-  "channel": 102,
+  "ccnum": 102,
   "default": 16,
   "max": 16
 }, {
-  "id": "no-coast-midi-b-channel",
+  "id": "no-coast-midi-b-ccnum",
   "label": "Midi B Channel",
-  "channel": 103,
+  "ccnum": 103,
   "default": 16,
   "max": 16
 }, {
   "id": "no-coast-midi-a-cv",
   "label": "Midi A CV",
-  "channel": 104,
+  "ccnum": 104,
   "default": 3,
   "max": 3
 }, {
   "id": "no-coast-midi-b-cv",
   "label": "Midi B CV",
-  "channel": 105,
+  "ccnum": 105,
   "default": 3,
   "max": 3
 }, {
   "id": "no-coast-midi-a-gate",
   "label": "Midi A Gate",
-  "channel": 106,
+  "ccnum": 106,
   "default": 3,
   "max": 3
 }, {
   "id": "no-coast-midi-b-gate",
   "label": "Midi B Gate",
-  "channel": 107,
+  "ccnum": 107,
   "default": 3,
   "max": 3
 }, {
   "id": "no-coast-midi-a-pitch-bend",
   "label": "Midi A Pitch Bend Scale",
-  "channel": 108,
+  "ccnum": 108,
   "default": 0,
   "max": 127
 }, {
   "id": "no-coast-midi-b-pitch-bend",
   "label": "Midi B Pitch Bend Scale",
-  "channel": 109,
+  "ccnum": 109,
   "default": 0,
   "max": 127
 }, {
   "id": "no-coast-midi-a-after-scale",
   "label": "Midi A After Scale",
-  "channel": 110,
+  "ccnum": 110,
   "default": 0,
   "max": 127
 }, {
   "id": "no-coast-midi-b-after-scale",
   "label": "Midi B After Scale",
-  "channel": 111,
+  "ccnum": 111,
   "default": 0,
   "max": 127
 }, {
   "id": "no-coast-midi-a-velocity-scale",
   "label": "Midi A Velocity Scale",
-  "channel": 112,
+  "ccnum": 112,
   "default": 0,
   "max": 127
 }, {
   "id": "no-coast-midi-b-velocity-scale",
   "label": "Midi B Velocity Scale",
-  "channel": 113,
+  "ccnum": 113,
   "default": 0,
   "max": 127
 }]
