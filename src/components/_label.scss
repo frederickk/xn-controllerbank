@@ -1,0 +1,32 @@
+@import '../sass/mixins';
+
+@mixin label-base {
+  @include mq-min(768px) {
+    max-width: none;
+  }
+
+  display: block;
+  flex: 1;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  transition: color var(--transition-ms, 100ms) ease-in-out;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--type-color--hover, #fff);
+  }
+}
+
+@mixin iron-icon  {
+  font-size: 16px;
+  height: 16px;
+  line-height: 0;
+  margin: auto;
+  padding-right: 1ch;
+  width: 16px;
+
+  &[icon=''] {
+    display: none;
+  }
+}

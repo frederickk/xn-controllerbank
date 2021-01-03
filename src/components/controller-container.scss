@@ -1,0 +1,17 @@
+@import '../sass/mixins';
+
+:host {
+  @include mq-min(768px) {
+    width: calc(50% - 2vw);
+  }
+
+  @include mq-min(1023px) {
+    width: calc(25% - 2vw);
+  }
+
+  border-top: 1px var(--light-background, #222) solid;
+  box-sizing: border-box;
+  margin: 1vw;
+  padding: 0 1vw;
+  width: 100%;
+}

@@ -1,0 +1,235 @@
+[{
+  "id": "parameter-1",
+  "label": "Parameter 1",
+  "ccnum": 1,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "parameter-2",
+  "label": "Parameter 1",
+  "ccnum": 2,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "filter-cutoff",
+  "label": "Filter cutoff",
+  "ccnum": 3,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "filter-resonance",
+  "label": "Filter resonance",
+  "ccnum": 4,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "envelope-attack",
+  "label": "Envelope attack",
+  "ccnum": 5,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "envelope-decay",
+  "label": "Envelope decay",
+  "ccnum": 6,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "envelope-sustain",
+  "label": "Envelope sustain",
+  "ccnum": 7,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "envelope-release",
+  "label": "Envelope release",
+  "ccnum": 8,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "lfo-depth",
+  "label": "LFO depth",
+  "ccnum": 9,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "lfo-speed",
+  "label": "LFO speed",
+  "ccnum": 10,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "lfo-target",
+  "label": "LFO target",
+  "ccnum": 11,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "lfo-shape",
+  "label": "LFO shape",
+  "ccnum": 12,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "fx-1-send",
+  "label": "FX 1 send",
+  "ccnum": 13,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "fx-2-send",
+  "label": "FX 2 send",
+  "ccnum": 14,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "pan",
+  "label": "Pan",
+  "ccnum": 15,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "volume",
+  "label": "Volume",
+  "ccnum": 16,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "portamento",
+  "label": "Portamento",
+  "ccnum": 17,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "note-style",
+  "label": "Note style",
+  "ccnum": 18,
+  "default": 0,
+  "max": 127
+}, {
+  "type": "spacer"
+}, {
+  "type": "spacer"
+}, {
+  "id": "track-gain",
+  "label": "Track gain",
+  "ccnum": 50,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "track-gain-rel",
+  "label": "Track gain (relative)",
+  "ccnum": 51,
+  "default": 1,
+  "max": 127
+}, {
+  "id": "reset-track-gains",
+  "label": "Reset track gains",
+  "ccnum": 52,
+  "default": 0,
+  "max": 127
+}, {
+  "type": "spacer"
+}, {
+  "id": "mute",
+  "label": "Mute",
+  "ccnum": 53,
+  "default": 0,
+  "max": 1
+}, {
+  "id": "audio-mute",
+  "label": "Audio mute",
+  "ccnum": 54,
+  "default": 0,
+  "max": 1
+}, {
+  "id": "mute-group",
+  "label": "Mute group",
+  "ccnum": 55,
+  "default": 0,
+  "max": 9
+}, {
+  "type": "spacer"
+}, {
+  "id": "tempo",
+  "label": "Tempo",
+  "ccnum": 56,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "swing",
+  "label": "Swing",
+  "ccnum": 57,
+  "default": 0,
+  "max": 127
+}, {
+  "type": "spacer"
+}, {
+  "type": "spacer"
+}, {
+  "id": "select-pattern",
+  "label": "Select pattern",
+  "ccnum": 103,
+  "default": 0,
+  "max": 15
+}, {
+  "id": "next-pattern",
+  "label": "Next pattern",
+  "ccnum": 103,
+  "default": 16,
+  "max": 16
+}, {
+  "id": "previous-pattern",
+  "label": "Previous pattern",
+  "ccnum": 103,
+  "default": 17,
+  "max": 17
+}, {
+  "type": "spacer"
+}, {
+  "id": "track-step-count",
+  "label": "Track step count",
+  "ccnum": 60,
+  "default": 1,
+  "max": 16
+}, {
+  "id": "track-step-length",
+  "label": "Track step length",
+  "ccnum": 61,
+  "default": 1,
+  "max": 16
+}, {
+  "type": "spacer"
+}, {
+  "type": "spacer"
+}, {
+  "id": "quantize",
+  "label": "Quantize",
+  "ccnum": 62,
+  "default": 0,
+  "max": 127
+}, {
+  "id": "note-length",
+  "label": "Note length",
+  "ccnum": 63,
+  "default": 0,
+  "max": 12
+}, {
+  "type": "spacer"
+}, {
+  "type": "spacer"
+}, {
+  "id": "active-track",
+  "label": "Active track",
+  "ccnum": 102,
+  "channel": 0,
+  "default": 0,
+  "max": 15
+}, {
+  "id": "parameter-page",
+  "label": "Parameter page",
+  "ccnum": 102,
+  "channel": 1,
+  "default": 0,
+  "max": 3
+}]

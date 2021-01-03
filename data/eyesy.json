@@ -1,81 +1,81 @@
 [{
   "id": "eyesy-mode-params-1",
   "label": "Mode Params",
-  "channel": 21,
+  "ccnum": 21,
   "default": 0
 }, {
   "id": "eyesy-mode-params-2",
   "label": "Mode Params",
-  "channel": 22,
+  "ccnum": 22,
   "default": 0
 }, {
   "id": "eyesy-mode-params-3",
   "label": "Mode Params",
-  "channel": 23,
+  "ccnum": 23,
   "default": 0
 }, {
   "id": "eyesy-mode-params-4",
   "label": "Mode Params",
-  "channel": 24,
+  "ccnum": 24,
   "default": 0
 }, {
   "id": "eyesy-background-color",
   "label": "Background Color",
-  "channel": 26,
+  "ccnum": 26,
   "default": 0
 }, {
   "id": "eyesy-background-color",
   "label": "Background Color",
-  "channel": 26,
+  "ccnum": 26,
   "default": 0
 }, {
   "id": "eyesy-scene-selection",
   "label": "Scene Selection",
-  "channel": 26,
+  "ccnum": 26,
   "default": 0
 }, {
   "id": "eyesy-save-delete",
   "label": "Save or Delete",
-  "channel": 27,
+  "ccnum": 27,
   "default": 0
 }, {
   "id": "eyesy-auto-clear-toggle",
   "label": "Auto Clear Toggle",
-  "channel": 28,
+  "ccnum": 28,
   "default": 0
 }, {
   "id": "eyesy-mode-selection",
   "label": "Mode Selection",
-  "channel": 29,
+  "ccnum": 29,
   "default": 0
 }, {
   "id": "eyesy-take-screenshot",
   "label": "Take Screenshot",
-  "channel": 30,
+  "ccnum": 30,
   "default": 0
 }, {
   "id": "eyesy-info-display",
   "label": "Info Display",
-  "channel": 31,
+  "ccnum": 31,
   "default": 0
 }, {
   "id": "eyesy-send-trigger",
   "label": "Send Trigger",
-  "channel": 32,
+  "ccnum": 32,
   "default": 0
 }, {
   "id": "eyesy-shift-key",
   "label": "Shift key",
-  "channel": 33,
+  "ccnum": 33,
   "default": 0
 }, {
   "id": "eyesy-input-gain",
   "label": "Input Gain",
-  "channel": 34,
+  "ccnum": 34,
   "default": 0
 }, {
   "id": "eyesy-trigger-source",
   "label": "Trigger Source",
-  "channel": 35,
+  "ccnum": 35,
   "default": 0
 }]

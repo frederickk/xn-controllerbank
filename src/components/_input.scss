@@ -1,0 +1,99 @@
+@import '../sass/mixins';
+
+@mixin input-base {
+  @include mq-min(768px) {
+    padding: 1em;
+  }
+
+  appearance: none;
+  background-color: var(--light-background, #222);
+  border: 0;
+  border-radius: var(--border-radius,);
+  box-sizing: border-box;
+  color: var(--type-color--hover, #fff);
+  display: inline-block;
+  flex: 1;
+  font-family: inherit;
+  font-size: 16px;
+  margin-left: 1ch;
+  padding: .5em;
+  text-align: center;
+  transition: background-color var(--transition-ms, 100ms) ease-in-out, color var(--transition-ms, 100ms) ease-in-out;
+  // width: 100%;
+
+  &:hover {
+    background-color: var(--light-background--hover, #333);
+    color: var(--type-color--hover, #fff);
+  }
+}
+
+@mixin input-range-base {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 100%;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: var(--type-color, #aaa);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 2em;
+    transition: background-color var(--transition-ms, 100ms) ease-in-out;
+    width: 2em;
+
+    &:hover {
+      background-color: var(--type-color--hover, #fff);
+    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    background: var(--light-background, #222);
+    border-radius: 1em;
+    cursor: pointer;
+    height: 2em;
+    transition: background-color var(--transition-ms, 100ms) ease-in-out;
+
+    &:hover {
+      background-color: var(--light-background--hover, #333);
+    }
+  }
+
+  &::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+@mixin select-base {
+  @include mq-min(768px) {
+    padding: 1em;
+    max-width: none;
+  }
+
+  background-color: var(--light-background, #222);
+  border: 0;
+  border-radius: var(--border-radius, 4px);
+  color: var(--type-color, #aaa);
+  cursor: pointer;
+  flex: 2;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  max-width: 20vw;
+  overflow: hidden;
+  padding: .5em;
+  text-overflow: ellipsis;
+  transition: color var(--transition-ms, 100ms) ease-in-out;
+
+  &:hover {
+    color: var(--type-color--hover, #fff);
+  }
+
+  &:empty {
+    background-color: var(--error-color, #f00);
+    color: var(--type-color--hover, #fff);
+  }
+}

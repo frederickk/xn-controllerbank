@@ -6,21 +6,23 @@
   <div id="container" class="container">
     {% for param in data %}
       {% if param.type == "spacer" %}
-        <div class="controller__container"></div>
-        {% else %}
-        <div class="controller__container">
-          <div class="controller__group">
-            <div id="{{ param.id }}-name" class="controller__label controller__label--white" data-save="1" contenteditable="true">{{ param.label }}</div>
-          </div>
-          <div class="controller__group">
-            <div id="{{ param.id }}-val1-label" class="controller__label">CC Number</div>
-            <input id="{{ param.id }}-val1" class="controller__input controller__value" data-save="1" value="{{ param.channel }}" />
-          </div>
-          <div class="controller__group">
-            <input id="{{ param.id }}" name="{{ param.id }}" class="controller" data-save="1" type="range" value="{{ param.default }}" max="{{ param.max }}" />
-            <input id="{{ param.id }}-label" class="controller__input controller__value" data-save="1" value="{{ param.default }}" />
-          </div>
-        </div>
+        <controller-container></controller-container>
+      {% else %}
+        <controller-container>
+          <controller-group>
+            <div id="{{ param.id }}-name" data-save="innerText" contenteditable="true">{{ param.label }}</div>
+          </controller-group>
+
+          <controller-input id="{{ param.id }}-channel" for="{{ param.id }}" data-attr="channel" value="{{ param.channel | default(1) }}" min="1" max="16">
+            Channel
+          </controller-input>
+
+          <controller-input id="{{ param.id }}-cc" for="{{ param.id }}" data-attr="ccnum" value="{{ param.ccnum }}">
+            CC Number
+          </controller-input>
+
+          <controller-slider id="{{ param.id }}-slider" name="{{ param.id }}" data-attr="cc" ccnum="{{ param.ccnum }}" channel="{{ param.channel | default(1) }}" value="{{ param.default }}" max="{{ param.max }}"></controller-slider>
+        </controller-container>
       {% endif %}
     {% endfor %}
   </div>
