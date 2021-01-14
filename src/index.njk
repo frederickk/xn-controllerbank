@@ -4,9 +4,9 @@
   <div id="container" class="container">
     {% for i in range(0, 16) -%}
       <controller-container>
-        <controller-group>
-          <div id="controller{{i + 1}}-name" data-save="1" contenteditable="true">Controller {{i + 1}}</div>
-        </controller-group>
+        <controller-header id="controller{{i + 1}}">
+          <div id="controller{{i + 1}}-name" data-save="innerText" contenteditable="true">Controller {{i + 1}}</div>
+        </controller-header>
 
         <controller-input id="controller{{i + 1}}-channel" for="controller{{i + 1}}" data-attr="channel" value="1" min="1" max="16">
           Channel

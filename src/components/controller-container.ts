@@ -4,7 +4,7 @@ import {LitElement, html, customElement} from 'lit-element';
 import Style from './controller-container.scss';
 
 @customElement('controller-container')
-export default class ControllerSlider extends LitElement {
+export default class ControllerContainer extends LitElement {
   static get styles() {
 		return [Style];
   }

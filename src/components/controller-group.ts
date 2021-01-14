@@ -7,7 +7,7 @@ import '@polymer/iron-icons/image-icons.js';
 import Style from './controller-group.scss';
 
 @customElement('controller-group')
-export default class ControllerSlider extends LitElement {
+export default class ControllerGroup extends LitElement {
   static get styles() {
 		return [Style];
   }

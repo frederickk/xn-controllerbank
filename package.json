@@ -1,16 +1,17 @@
 {
-  "name": "webmidi-controller",
+  "name": "xn-controllerbank",
   "version": "0.1.2",
-  "description": "webmidi controller",
+  "description": "Xn Controllerbank",
   "files": [
     "src/"
   ],
   "scripts": {
-    "dev": "npm run serve && webpack --watch",
-    "serve": "webpack serve",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack",
+    "dev": "npm run serve && node_modules/.bin/webpack --watch",
+    "serve": "node_modules/.bin/webpack serve",
+    "build": "npm run clean && cross-env NODE_ENV=production node_modules/.bin/webpack",
     "clean": "rm -rf ./dist ./.cache",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "push": "git add --all && git commit --amend --no-edit && git push origin primary --force && npm run deploy"
   },
   "keywords": [
     "webmidi",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@polymer/iron-icons": "^3.0.1",
     "@types/node": "^14.14.14",
+    "@types/web-bluetooth": "0.0.9",
     "@types/webmidi": "^2.0.4",
     "@types/webpack": "^4.41.25",
     "@types/webpack-dev-server": "^3.11.1",

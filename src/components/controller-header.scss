@@ -1,0 +1,34 @@
+@import '../sass/mixins';
+@import './_input';
+@import './_label';
+
+:host {
+  width: 100%;
+
+  #group {
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 1em 0 0;
+    width: 100%;
+
+    &:hover {
+      button {
+        opacity: 1;
+      }
+    }
+  }
+
+  iron-icon {
+    @include iron-icon;
+  }
+
+  button {
+    @include input-base;
+
+    background-color: transparent;
+    cursor: pointer;
+    opacity: 0;
+    padding: .25em .5em !important;
+    transition: opacity var(--transition-ms, 100ms) ease-in-out;
+  }
+}

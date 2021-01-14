@@ -23,7 +23,8 @@
   height: 16px;
   line-height: 0;
   margin: auto;
-  padding-right: 1ch;
+  min-width: 16px;
+  // padding-right: 1ch;
   width: 16px;
 
   &[icon=''] {

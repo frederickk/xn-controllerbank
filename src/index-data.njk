@@ -9,6 +9,7 @@
         <controller-container></controller-container>
       {% else %}
         <controller-container>
+          {# TODO(frederickk): Add ability to add/remove components for predefined templates?. #}
           <controller-group>
             <div id="{{ param.id }}-name" data-save="innerText" contenteditable="true">{{ param.label }}</div>
           </controller-group>

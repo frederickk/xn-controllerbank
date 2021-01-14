@@ -51,8 +51,8 @@ export default class ControllerSlider extends LitElement {
   render() {
     return html`
       <div id="group">
-        <input type="range" id="${this.id}" value="${this.value}" min="${this.min}" max="${this.max}" @input="${this.changeHandler_}" />
-        <input type="number" id="${this.id}-label" value="${this.value}" min="${this.min}" max="${this.max}" @change="${this.changeHandler_}" @input="${this.changeHandler_}" />
+        <input type="range" id="${this.id}" title="Adjust value" value="${this.value}" min="${this.min}" max="${this.max}" @input="${this.changeHandler_}" />
+        <input type="number" id="${this.id}-label" title="Increment/decrement value" value="${this.value}" min="${this.min}" max="${this.max}" @change="${this.changeHandler_}" @input="${this.changeHandler_}" />
       </div>`;
   }
 
@@ -92,14 +92,30 @@ export default class ControllerSlider extends LitElement {
 
     if (attr === null || attr === undefined) {
       console.warn('Invalid or missing \'data-attr\'.', attr);
-    } else if (attr === 'NOTE_ON') {
-      window.Midi.noteOn(this.value, this.velocity, channel);
-    } else if (attr === 'NOTE_OFF') {
-      window.Midi.noteOff(this.value, 0, channel);
     } else {
-      window.Midi.sendMessage(window.Midi[attr], this.ccnum, this.value, channel);
+      console.log(`"${attr}"`, window.Midi.CC, this.ccnum, this.value, channel);
+
+      if (attr === 'NOTE_ON') {
+        window.Midi.noteOn(this.value, this.velocity, channel);
+      } else if (attr === 'NOTE_OFF') {
+        window.Midi.noteOff(this.value, 0, channel);
+      } else {
+        window.Midi.sendMessage(window.Midi[attr], this.ccnum, this.value, channel);
+      }
+
+      if (window.Bluetooth) {
+        const packet = new Uint8Array([
+          window.Midi['HEADER'],
+          window.Midi.getTimestampBytes().messageTimestamp,
+          channel & 0x0F | window.Midi[attr],
+          this.value & 0x7F,
+          this.ccnum & 0x7F,
+        ]);
+        console.log(`🎹 ${packet}`);
+
+        window.Bluetooth.send(packet);
+      }
     }
 
-    console.log(`"${attr}"`, window.Midi.CC, this.ccnum, this.value, channel);
   }
 }

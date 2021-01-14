@@ -1,4 +1,4 @@
-// TODO(frederickk)
+// TODO(frederickk): Complete implemenation.
 // import {StorageHelper} from './storageHelper';
 
 // export class Select {

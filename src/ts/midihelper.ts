@@ -5,6 +5,7 @@ declare global {
 }
 
 export class MidiHelper {
+  HEADER = 0x00;
   AFTERTOUCH = 0xA0;
   CC = 0xB0;
   CHANNEL_PRESSURE = 0xD0;
@@ -85,6 +86,17 @@ export class MidiHelper {
     .then(
         (midiAccess: WebMidi.MIDIAccess) => this.midiReady_(midiAccess),
         (err: Error) => console.log('Something went wrong', err));
+  }
+
+  getTimestampBytes() {
+    const d = Date.now().toString(2).split('').reverse();
+    const byte0 = ['1', '0', d[12], d[11], d[10], d[9], d[8], d[7]];
+    const byte1 = ['1', d[6], d[5], d[4], d[3], d[2], d[1], d[0]];
+
+    return {
+      header: parseInt(byte0.join(''), 2),
+      messageTimestamp: parseInt(byte1.join(''), 2),
+    };
   }
 
   /** Send Midi note on message. */

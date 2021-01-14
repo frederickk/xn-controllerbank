@@ -7,6 +7,7 @@
     @include input-base;
 
     background-color: var(--background, #000);
+    cursor: pointer;
     transition: background-color var(--transition-ms, 100ms) ease-in-out, color var(--transition-ms, 100ms) ease-in-out;
 
     &:hover {

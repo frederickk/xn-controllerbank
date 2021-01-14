@@ -5,7 +5,7 @@ import {StorageHelper} from '../ts/storageHelper';
 import Style from './controller-input.scss';
 
 @customElement('controller-input')
-export default class ControllerSlider extends LitElement {
+export default class ControllerInput extends LitElement {
   private sh_ = StorageHelper;
   // private mh_: MidiHelper;
 
@@ -33,13 +33,13 @@ export default class ControllerSlider extends LitElement {
   max = 127;
 
   @property({type: String})
-  save = "value";
+  save = 'value';
 
   render() {
     return html`
       <div id="group">
         <div id="${this.id}-label"><slot></slot></div>
-        <input type="number" id="${this.id}" value="${this.value}" min="${this.min}" max="${this.max}" @change=${this.changeHandler_}" />
+        <input type="number" id="${this.id}" title="Increment/decrement value" value="${this.value}" min="${this.min}" max="${this.max}" @change=${this.changeHandler_}" />
       </div>`;
   }
 
