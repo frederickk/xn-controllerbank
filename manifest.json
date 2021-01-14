@@ -1,10 +1,10 @@
 {
-  "name": "WebMidiController",
-  "short_name": "WebMidiController",
+  "name": "Xn Controllerbank",
+  "short_name": "Xn Controllerbank",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#000",
-  "description": "A WebMidi Controller",
+  "description": "Sixteen or more controllers, WebMIDI over USB and maybe Bluetooth",
   "icons": [{
     "src": "images/icon-48.png",
     "sizes": "48x48",
