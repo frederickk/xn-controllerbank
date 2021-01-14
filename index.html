@@ -17,13 +17,13 @@
       
 
       <controller-group icon="icons:arrow-upward">
-        <select id="midi-output"></select>
-        <controller-button id="connect-bluetooth" icon="device:bluetooth" title=""></controller-button>
+        <select id="midi-output" title="Select output device"></select>
+        <controller-button id="connect-bluetooth" icon="device:bluetooth" title="Connect to Bluetooth device. Note: Not all devices supported" label=""></controller-button>
       </controller-group>
 
       <controller-group icon="image:music-note">
         
-        <select id="control-template" onchange="window.location.assign(`${this.value}`)">
+        <select id="control-template" title="Select device template" onchange="window.location.assign(`${this.value}`)">
           <option value="./"selected>General</option>
           <option value="./no-coast/">0-Coast</option>
           <option value="./eyesy/">Eyesy</option>
@@ -34,8 +34,8 @@
       <controller-group class="align--right">
         <div>
           
-          <controller-button id="save-button" icon="image:tune" title="Save"></controller-button>
-          <controller-button id="clear-button" icon="icons:delete" title="Clear" onclick="localStorage.clear();"></controller-button>
+          <controller-button id="save-button" icon="image:tune" title="Save all values" label="Save"></controller-button>
+          <controller-button id="clear-button" icon="icons:delete" title="Clear all values" label="Clear" onclick="localStorage.clear();"></controller-button>
         </div>
       </controller-group>
       
@@ -44,9 +44,9 @@
     
   <div id="container" class="container">
     <controller-container>
-        <controller-group>
+        <controller-header id="controller1">
           <div id="controller1-name" data-save="1" contenteditable="true">Controller 1</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller1-channel" for="controller1" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -59,9 +59,9 @@
         <controller-slider id="controller1-slider" name="controller1" data-attr="cc" ccnum="1" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller2">
           <div id="controller2-name" data-save="1" contenteditable="true">Controller 2</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller2-channel" for="controller2" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -74,9 +74,9 @@
         <controller-slider id="controller2-slider" name="controller2" data-attr="cc" ccnum="2" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller3">
           <div id="controller3-name" data-save="1" contenteditable="true">Controller 3</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller3-channel" for="controller3" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -89,9 +89,9 @@
         <controller-slider id="controller3-slider" name="controller3" data-attr="cc" ccnum="3" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller4">
           <div id="controller4-name" data-save="1" contenteditable="true">Controller 4</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller4-channel" for="controller4" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -104,9 +104,9 @@
         <controller-slider id="controller4-slider" name="controller4" data-attr="cc" ccnum="4" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller5">
           <div id="controller5-name" data-save="1" contenteditable="true">Controller 5</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller5-channel" for="controller5" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -119,9 +119,9 @@
         <controller-slider id="controller5-slider" name="controller5" data-attr="cc" ccnum="5" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller6">
           <div id="controller6-name" data-save="1" contenteditable="true">Controller 6</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller6-channel" for="controller6" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -134,9 +134,9 @@
         <controller-slider id="controller6-slider" name="controller6" data-attr="cc" ccnum="6" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller7">
           <div id="controller7-name" data-save="1" contenteditable="true">Controller 7</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller7-channel" for="controller7" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -149,9 +149,9 @@
         <controller-slider id="controller7-slider" name="controller7" data-attr="cc" ccnum="7" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller8">
           <div id="controller8-name" data-save="1" contenteditable="true">Controller 8</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller8-channel" for="controller8" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -164,9 +164,9 @@
         <controller-slider id="controller8-slider" name="controller8" data-attr="cc" ccnum="8" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller9">
           <div id="controller9-name" data-save="1" contenteditable="true">Controller 9</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller9-channel" for="controller9" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -179,9 +179,9 @@
         <controller-slider id="controller9-slider" name="controller9" data-attr="cc" ccnum="9" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller10">
           <div id="controller10-name" data-save="1" contenteditable="true">Controller 10</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller10-channel" for="controller10" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -194,9 +194,9 @@
         <controller-slider id="controller10-slider" name="controller10" data-attr="cc" ccnum="10" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller11">
           <div id="controller11-name" data-save="1" contenteditable="true">Controller 11</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller11-channel" for="controller11" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -209,9 +209,9 @@
         <controller-slider id="controller11-slider" name="controller11" data-attr="cc" ccnum="11" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller12">
           <div id="controller12-name" data-save="1" contenteditable="true">Controller 12</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller12-channel" for="controller12" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -224,9 +224,9 @@
         <controller-slider id="controller12-slider" name="controller12" data-attr="cc" ccnum="12" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller13">
           <div id="controller13-name" data-save="1" contenteditable="true">Controller 13</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller13-channel" for="controller13" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -239,9 +239,9 @@
         <controller-slider id="controller13-slider" name="controller13" data-attr="cc" ccnum="13" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller14">
           <div id="controller14-name" data-save="1" contenteditable="true">Controller 14</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller14-channel" for="controller14" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -254,9 +254,9 @@
         <controller-slider id="controller14-slider" name="controller14" data-attr="cc" ccnum="14" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller15">
           <div id="controller15-name" data-save="1" contenteditable="true">Controller 15</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller15-channel" for="controller15" data-attr="channel" value="1" min="1" max="16">
           Channel
@@ -269,9 +269,9 @@
         <controller-slider id="controller15-slider" name="controller15" data-attr="cc" ccnum="15" channel="1"></controller-slider>
       </controller-container>
     <controller-container>
-        <controller-group>
+        <controller-header id="controller16">
           <div id="controller16-name" data-save="1" contenteditable="true">Controller 16</div>
-        </controller-group>
+        </controller-header>
 
         <controller-input id="controller16-channel" for="controller16" data-attr="channel" value="1" min="1" max="16">
           Channel

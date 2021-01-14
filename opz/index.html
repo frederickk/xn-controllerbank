@@ -17,13 +17,13 @@
       
 
       <controller-group icon="icons:arrow-upward">
-        <select id="midi-output"></select>
-        <controller-button id="connect-bluetooth" icon="device:bluetooth" title=""></controller-button>
+        <select id="midi-output" title="Select output device"></select>
+        <controller-button id="connect-bluetooth" icon="device:bluetooth" title="Connect to Bluetooth device. Note: Not all devices supported" label=""></controller-button>
       </controller-group>
 
       <controller-group icon="image:music-note">
         
-        <select id="control-template" onchange="window.location.assign(`${this.value}`)">
+        <select id="control-template" title="Select device template" onchange="window.location.assign(`${this.value}`)">
           <option value="../">General</option>
           <option value="../no-coast/">0-Coast</option>
           <option value="../eyesy/">Eyesy</option>
@@ -34,8 +34,8 @@
       <controller-group class="align--right">
         <div>
           
-          <controller-button id="save-button" icon="image:tune" title="Save"></controller-button>
-          <controller-button id="clear-button" icon="icons:delete" title="Clear" onclick="localStorage.clear();"></controller-button>
+          <controller-button id="save-button" icon="image:tune" title="Save all values" label="Save"></controller-button>
+          <controller-button id="clear-button" icon="icons:delete" title="Clear all values" label="Clear" onclick="localStorage.clear();"></controller-button>
         </div>
       </controller-group>
       
